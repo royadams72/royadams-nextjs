@@ -1,0 +1,10 @@
+.container {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 940 / 370;
+  overflow: hidden;
+
+  :global(img) {
+    object-fit: cover;
+  }
+}
