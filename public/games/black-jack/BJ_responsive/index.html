@@ -1,0 +1,173 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Blackjack Game</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	 <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+      <link rel="stylesheet" type="text/css" href="css/styles.css">
+<style>
+	#mContainer, #sContainer{position: relative;}
+</style>
+	
+ <script language="javascript">
+
+        /*Update clientlibUrl var for server url*/
+        var clientlibUrl = "";
+        var commonAssetsLoaded = false;
+        var mobileLoaded = false; //These are set to true in apps when they have loaded
+        var deskTopLoaded = false;
+
+      var gameSettings = {};
+	        gameSettings.clickThroughURL = "";
+           
+             gameSettings.click = "Click to make";
+             gameSettings.bet = "a bet and";
+	         gameSettings.getStarted = 'get started.';
+	 
+             gameSettings.badLuck = 'Bad luck';
+	 		 gameSettings.youBusted = 'you have busted';
+             gameSettings.dealerWins = 'Dealer wins';
+             gameSettings.AnotherBet = 'another bet.';
+           
+	 // msgtxt.text = "Bad luck you have busted \nClick to make another bet. ";
+             gameSettings.youWon = "You’ve won!";
+             gameSettings.signUp = "Sign up now";
+             gameSettings.toReceive = "to receive a";
+             gameSettings.bonus = "SPECIAL BONUS";
+	 		 gameSettings.youHave = "You have";
+ 			 gameSettings.zero = "£0";
+	 		 gameSettings.fifty = "£50";
+	 		 gameSettings.onehundred = "£100";
+	 		 gameSettings.remaining = "remaining";
+	 
+        var interval = setInterval(function() {
+            if (document.readyState === 'complete') {
+                clearInterval(interval);
+                console.log(document.readyState)
+                politeInit();
+            }
+        }, 100);
+
+        /*****politeInit loads once page is ready***************/
+        function politeInit() {
+			
+            function on_resize(c, t) {
+                onresize = function() {
+                    clearTimeout(t);
+                    t = setTimeout(c, 100)
+                };
+                return c;
+            };
+
+            var checkLoad = function() {
+                var body = document.body,
+                    html = document.documentElement;
+                var width = Math.max(body.scrollWidth, body.offsetWidth, html.clientWidth, html.scrollWidth, html.offsetWidth);
+                
+                console.log(width);
+                if (width < 500) {
+                    TweenMax.set(mContainer, { visibility: "visible", display: "block" });
+                    TweenMax.set(sContainer, { visibility: "hidden", display: "none" });
+                
+                    if (!mobileLoaded) {
+                        mobile();
+                    }
+                } else if (width > 500) {
+                    TweenMax.set(mContainer, { visibility: "hidden", display: "none" });
+                    TweenMax.set(sContainer, { visibility: "visible", display: "block" })
+                    if (!deskTopLoaded) {
+						console.log(deskTopLoaded);
+                        deskTop();
+                    }
+                }
+            }
+            on_resize(function() {
+                checkLoad();
+            });
+
+
+            //array of all the external js files we want to politely load//
+            var arrExtJs = ["https://www.foxycasino.com/etc/designs/clientlibs/libraries/pixi-3.0.x.js", "https://www.foxycasino.com/etc/designs/clientlibs/libraries/tweenmax-1.18.x.js", clientlibUrl + "js/main.js" , clientlibUrl + "js/mobile.js"];
+            var arrExtJs = ["https://www.foxycasino.com/etc/designs/clientlibs/libraries/pixi-3.0.x.js", "https://www.foxycasino.com/etc/designs/clientlibs/libraries/tweenmax-1.18.x.js", clientlibUrl + "js/main.js" , clientlibUrl + "js/mobile.js"];
+            var loadJsIndex = 0;
+            /**
+             * Function loads in an external JS file
+             */
+            function loadExtJavaScript() {
+                // Load in external Javascript file
+                var extJavaScript = document.createElement("script");
+                extJavaScript.setAttribute("type", "text/javascript");
+                extJavaScript.setAttribute("src", arrExtJs[loadJsIndex]);
+                extJavaScript.onload = function() {
+                    jsLoadedHandler();
+                }
+                document.getElementsByTagName("head")[0].appendChild(extJavaScript);
+            }
+            loadExtJavaScript();
+            /**
+             * Fired when an External JS files has been loaded
+             */
+            function jsLoadedHandler() {
+                console.log("JS LOADED (" + arrExtJs[loadJsIndex] + ")");
+                loadJsIndex++;
+                if (loadJsIndex < arrExtJs.length) {
+                    loadExtJavaScript(); // load next JS file
+                } else {
+                    checkLoad();
+                }
+            }
+        }
+    </script>
+    <script>
+    </script>
+
+
+
+</head>
+
+<body>
+    
+       
+        
+      <div id="container" class="container-fluid">
+      
+            <div class="row">
+                <div class="col-md-12 clearfix header">
+
+                    <img src="img/top.jpg" class="img-responsive" width="970" height="93" style="margin:0 auto">
+
+                </div>
+            </div>
+            <div class="row">
+                <!---->
+                <div id="game_container">
+                    <div class="" id="mContainer">
+
+                        <canvas id="mobile_game" width="450" height="450"></canvas>
+
+                    </div>
+                    <div class="col-md-8 col-sm-12" id="sContainer">
+						<div id="sContainer2">
+                        <canvas id="game" class="pull-right img-responsive" width="800" height="500"></canvas>
+						</div>
+                    </div>
+                    <div class="col-md-4 col-sm-12">
+                        <img src="img/info.png" class="img-responsive pull-left" width="320" height="368">
+                    </div>
+                </div>
+                <!---->
+            </div>
+            <div class="push"></div>
+             </div>
+         
+            <div class="row footer">
+                <div id="accepted_payments" class="col-md-12"><img src="img/footerTop.jpg" class="img-responsive"></div>
+                <div class="faqs col-md-12"></div>
+            </div>
+
+</body>
+
+</html>

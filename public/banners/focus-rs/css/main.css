@@ -1,0 +1,385 @@
+@charset "UTF-8";
+
+/* CSS Document */
+
+body,
+body * {
+  vertical-align: baseline;
+  height: 100%;
+  border: 0 none;
+  outline: 0;
+  padding: 0;
+  margin: 0;
+}
+
+#clickThrough {
+  position: absolute;
+  height: 250px;
+  width: 300px;
+  z-index: 1000;
+  opacity: 0;
+  cursor: pointer;
+  cursor: hand;
+}
+
+#container_dc {
+  position: relative;
+  width: 298px;
+  height: 248px;
+  overflow: hidden !important;
+  border: 1px solid #ccc;
+}
+
+#findOutCTA {
+  position: absolute;
+  top: 215px;
+  left: 12px;
+  width: 133px;
+  height: 20px;
+  background: url(../images/cta.svg) no-repeat;
+  background-size: 266px 21px;
+  background-position: 0px 0px;
+  z-index: 600;
+}
+
+#arrow_btn {
+  width: 18px;
+  height: 18px;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  background: url(../images/arrow_btn.png) no-repeat;
+  background-position: 0px 3px;
+}
+
+#plinth {
+  position: absolute;
+  top: 200px;
+  left: 215px;
+  width: 71px;
+  height: 40px;
+  z-index: 999;
+  background: url(../images/plinth.png) no-repeat;
+}
+
+#carModelContainer {
+  position: absolute;
+  z-index: 800;
+}
+
+#carModel {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: inherit;
+  height: inherit;
+  background: url(../images/focusTxt.svg) no-repeat;
+}
+
+#car {
+  position: absolute;
+  top: 85px;
+  left: 110px;
+  width: 163px;
+  height: 108px;
+  background: url(../images/car.png) no-repeat;
+  background-size: 163px 108px;
+  z-index: 800;
+}
+
+#scriptSprite {
+  position: absolute;
+  left: 5px;
+  top: 8px;
+  width: 218px;
+  height: 86px;
+  background: url(../images/scriptSprite.png) no-repeat;
+  background-size: 3924px 86px;
+  background-position: 0px 0px;
+  opacity: 0;
+  /*overflow: hidden!important;*/
+  z-index: 700;
+}
+#car_shards {
+  position: absolute;
+  z-index: 999;
+}
+
+.shard {
+  /*For raining shards in begining animation*/
+  width: 100px;
+  height: 100px;
+  z-index: 2;
+}
+
+.shardsleft {
+  -ms-transform-origin: 70% 100%;
+  /* IE 9 */
+  -webkit-transform-origin: 70% 100%;
+  /* Chrome, Safari, Opera */
+  transform-origin: 70% 100%;
+}
+
+#leftShardContainer {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 200px;
+  height: 200px;
+  /*Use below to scale shard animation
+	  at the side of the car
+	-ms-transform: scale(1.5);
+    -webkit-transform: scale(1.5);
+    transform: scale(1.5);*/
+}
+#rightShardContainer {
+  position: absolute;
+  left: 200px;
+  top: 0px;
+  width: 200px;
+  height: 200px;
+  /*Use below to scale shard animation
+	  at the side of the car
+	-ms-transform: scale(1.5);
+    -webkit-transform: scale(1.5);
+    transform: scale(1.5);*/
+}
+#shard1 {
+  position: absolute;
+  left: 65px;
+  top: 110px;
+  width: 100px;
+  height: 80px;
+  background: url(../images/shard1.svg) no-repeat;
+  -webkit-transform: rotate(-20deg);
+  -moz-transform: rotate(-20deg);
+  -ms-transform: rotate(-20deg);
+  -o-transform: rotate(-20deg);
+  transform: rotate(-20deg);
+  /*-ms-transform: scale(0);
+    -webkit-transform: scale(0);
+    transform: scale(0);*/
+}
+
+#shard2 {
+  position: absolute;
+  left: 35px;
+  top: 67px;
+  width: 100px;
+  height: 140px;
+  background: url(../images/shard3.svg) no-repeat;
+  /*-ms-transform: scale(0);
+    -webkit-transform: scale(0);
+    transform: scale(0);*/
+  -ms-transform-origin: 70% 100%;
+  -webkit-transform-origin: 70% 100%;
+  transform-origin: 70% 100%;
+}
+
+#shard3 {
+  position: absolute;
+  left: 85px;
+  top: 140px;
+  width: 50px;
+  height: 50px;
+  background: url(../images/shard3.svg) no-repeat;
+  -webkit-transform: rotate(-40deg);
+  -moz-transform: rotate(-40deg);
+  -ms-transform: rotate(-40deg);
+  -o-transform: rotate(-40deg);
+  transform: rotate(-40deg);
+  /*-ms-transform: scale(0);
+    -webkit-transform: scale(0);
+    transform: scale(0);*/
+}
+
+#shard4 {
+  position: absolute;
+  left: 62px;
+  top: 110px;
+  width: 100px;
+  height: 80px;
+  background: url(../images/shard2.svg) no-repeat;
+  -webkit-transform: rotate(-10deg);
+  -moz-transform: rotate(-10deg);
+  -ms-transform: rotate(-10deg);
+  -o-transform: rotate(-10deg);
+  transform: rotate(-10deg);
+  -ms-transform: scale(0);
+  -webkit-transform: scale(0);
+  transform: scale(0);
+  -ms-transform-origin: 0% 100%;
+  /* IE 9 */
+  -webkit-transform-origin: 0% 100%;
+  /* Chrome, Safari, Opera */
+  transform-origin: 0% 100%;
+}
+#shard5 {
+  position: absolute;
+  left: 60px;
+  top: 185px;
+  width: 40px;
+  height: 50px;
+  background: url(../images/shard1.svg) no-repeat;
+  -webkit-transform: rotate(-40deg);
+  -moz-transform: rotate(-40deg);
+  -ms-transform: rotate(-40deg);
+  -o-transform: rotate(-40deg);
+  transform: rotate(-40deg);
+  -ms-transform: scale(0);
+  -webkit-transform: scale(0);
+  transform: scale(0);
+  -ms-transform-origin: 0% 0%;
+  /* IE 9 */
+  -webkit-transform-origin: 0% 0%;
+  /* Chrome, Safari, Opera */
+  transform-origin: 0% 0%;
+}
+
+#shard6 {
+  position: absolute;
+  left: 60px;
+  top: 185px;
+  width: 40px;
+  height: 50px;
+  background: url(../images/shard3.svg) no-repeat;
+  -webkit-transform: rotate(20deg);
+  -moz-transform: rotate(20deg);
+  -ms-transform: rotate(20deg);
+  -o-transform: rotate(20deg);
+  transform: rotate(20deg);
+  -ms-transform: scale(0);
+  -webkit-transform: scale(0);
+  transform: scale(0);
+  -ms-transform-origin: 0% 0%;
+  /* IE 9 */
+  -webkit-transform-origin: 0% 0%;
+  /* Chrome, Safari, Opera */
+  transform-origin: 0% 0%;
+}
+
+#shard7 {
+  position: absolute;
+  left: 45px;
+  top: 55px;
+  width: 100px;
+  height: 140px;
+  background: url(../images/shard3.svg) no-repeat;
+  -webkit-transform: rotate(70deg);
+  -moz-transform: rotate(70deg);
+  -ms-transform: rotate(70deg);
+  -o-transform: rotate(70deg);
+  transform: rotate(70deg);
+  -ms-transform: scale(0);
+  -webkit-transform: scale(0);
+  transform: scale(0);
+}
+
+#shard8 {
+  position: absolute;
+  left: -100px;
+  top: -40px;
+  width: 200px;
+  height: 200px;
+  background: url(../images/shard1.svg) no-repeat;
+  -webkit-transform: rotate(50deg);
+  -moz-transform: rotate(50deg);
+  -ms-transform: rotate(50deg);
+  -o-transform: rotate(50deg);
+  transform: rotate(50deg);
+  -ms-transform: scale(0);
+  -webkit-transform: scale(0);
+  transform: scale(0);
+  -ms-transform-origin: 70% 100%;
+  /* IE 9 */
+  -webkit-transform-origin: 70% 100%;
+  /* Chrome, Safari, Opera */
+  transform-origin: 70% 100%;
+}
+#shard9 {
+  position: absolute;
+  left: -40px;
+  top: -10px;
+  width: 150px;
+  height: 150px;
+  background: url(../images/shard3.svg) no-repeat;
+  -webkit-transform: rotate(30deg);
+  -moz-transform: rotate(30deg);
+  -ms-transform: rotate(30deg);
+  -o-transform: rotate(30deg);
+  transform: rotate(30deg);
+  -ms-transform: scale(0);
+  -webkit-transform: scale(0);
+  transform: scale(0);
+  -ms-transform-origin: 70% 100%;
+  /* IE 9 */
+  -webkit-transform-origin: 70% 100%;
+  /* Chrome, Safari, Opera */
+  transform-origin: 70% 100%;
+}
+
+#shard10 {
+  position: absolute;
+  left: -30px;
+  top: 50px;
+  width: 120px;
+  height: 120px;
+  background: url(../images/shard3.svg) no-repeat;
+  -webkit-transform: rotate(55deg);
+  -moz-transform: rotate(55deg);
+  -ms-transform: rotate(55deg);
+  -o-transform: rotate(55deg);
+  transform: rotate(55deg);
+  -ms-transform: scale(0);
+  -webkit-transform: scale(0);
+  transform: scale(0);
+  -ms-transform-origin: 70% 100%;
+  /* IE 9 */
+  -webkit-transform-origin: 70% 100%;
+  /* Chrome, Safari, Opera */
+  transform-origin: 70% 100%;
+}
+
+#shard11 {
+  position: absolute;
+  left: 58px;
+  top: 103px;
+  width: 100px;
+  height: 80px;
+  background: url(../images/shard2.svg) no-repeat;
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  transform: rotate(90deg);
+  -ms-transform: scale(0);
+  -webkit-transform: scale(0);
+  transform: scale(0);
+  -ms-transform-origin: 0% 100%;
+  /* IE 9 */
+  -webkit-transform-origin: 0% 100%;
+  /* Chrome, Safari, Opera */
+  transform-origin: 0% 100%;
+}
+
+#shard12 {
+  position: absolute;
+  left: -62px;
+  top: -12px;
+  width: 200px;
+  height: 200px;
+  background: url(../images/shard1.svg) no-repeat;
+  -webkit-transform: rotate(230deg);
+  -moz-transform: rotate(230deg);
+  -ms-transform: rotate(230deg);
+  -o-transform: rotate(230deg);
+  transform: rotate(230deg);
+  -ms-transform: scale(0);
+  -webkit-transform: scale(0);
+  transform: scale(0);
+  -ms-transform-origin: 70% 100%;
+  /* IE 9 */
+  -webkit-transform-origin: 70% 100%;
+  /* Chrome, Safari, Opera */
+  transform-origin: 70% 100%;
+}

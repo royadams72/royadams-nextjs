@@ -1,0 +1,130 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Blackjack Game</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+ <script language="javascript">
+     /* Update clientlibUrl var for server url*/
+    var clientlibUrl = "";
+    var commonAssetsLoaded = false;
+    var mobileLoaded = false; //These are set to true in apps when they have loaded
+    var deskTopLoaded = false;
+
+      ///*********************Vars for desktop text*********************///
+      ////Winning text, has to be done in chunks to accomodate different sized text
+      var gameSettings = {};
+	    gameSettings.clickThroughURL = "";
+      gameSettings.click = "Click to make";
+      gameSettings.bet = "a bet and";
+      gameSettings.getStarted = 'get started.';
+      gameSettings.badLuck = 'Bad luck';
+      gameSettings.youBusted = 'you have busted';
+      gameSettings.dealerWins = 'Dealer wins';
+      gameSettings.AnotherBet = 'another bet.';
+
+	 // msgtxt.text = "Bad luck you have busted \nClick to make another bet. ";
+      gameSettings.youWon = "You’ve won!";
+      gameSettings.signUp = "Sign up now";
+      gameSettings.toReceive = "to receive a";
+      gameSettings.bonus = "SPECIAL BONUS";
+      gameSettings.youHave = "You have";
+      gameSettings.zero = "£0";
+      gameSettings.fifty = "£50";
+      gameSettings.onehundred = "£100";
+      gameSettings.remaining = "remaining";
+
+
+        var interval = setInterval(function() {
+            if (document.readyState === 'complete') {
+                clearInterval(interval);
+                console.log(document.readyState)
+                politeInit();
+            }
+        }, 100);
+
+        /***** politeInit loads once page is ready ***************/
+      function politeInit() {
+            function on_resize(c, t) {
+                onresize = function() {
+                    clearTimeout(t);
+                    t = setTimeout(c, 100)
+                };
+                return c;
+            };
+
+            var checkLoad = function() {
+                var body = document.body,
+                    html = document.documentElement;
+                var width = Math.max(body.scrollWidth, body.offsetWidth, html.clientWidth, html.scrollWidth, html.offsetWidth);
+
+                if (width < 500) {
+                    TweenMax.set(mContainer, { visibility: "visible", display: "block", position: "relative"});
+                    TweenMax.set(sContainer, { visibility: "hidden", display: "none", position: "relative"});
+
+                    if (!mobileLoaded) {
+                        mobile();
+                    }
+                } else if (width > 500) {
+                    TweenMax.set(mContainer, { visibility: "hidden", display: "none", position: "relative"});
+                    TweenMax.set(sContainer, { visibility: "visible", display: "block", position: "relative" })
+                    if (!deskTopLoaded) {
+
+                        deskTop();
+                    }
+                }
+            }
+            on_resize(function() {
+                checkLoad();
+            });
+
+            //array of all the external js files we want to politely load//
+            var arrExtJs = ["https://cdnjs.cloudflare.com/ajax/libs/pixi.js/3.0.4/pixi.min.js", "https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/gsap.min.js", clientlibUrl + "js/main.js", clientlibUrl + "js/mobile.js"];
+
+            var loadJsIndex = 0;
+            /**
+             * Function loads in an external JS files
+             */
+            function loadExtJavaScript() {
+                // Load in external Javascript file
+                var extJavaScript = document.createElement("script");
+                extJavaScript.setAttribute("type", "text/javascript");
+                extJavaScript.setAttribute("src", arrExtJs[loadJsIndex]);
+                extJavaScript.onload = function() {
+                    jsLoadedHandler();
+                }
+                document.getElementsByTagName("head")[0].appendChild(extJavaScript);
+            }
+            loadExtJavaScript();
+            /**
+             * Fired when an External JS files has been loaded
+             */
+            function jsLoadedHandler() {
+                console.log("JS LOADED (" + arrExtJs[loadJsIndex] + ")");
+                loadJsIndex++;
+                if (loadJsIndex < arrExtJs.length) {
+                    loadExtJavaScript(); // load next JS file
+                } else {
+                    checkLoad();
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+  <div id="game_container">
+      <div class="" id="mContainer">
+          <canvas id="mobile_game" width="450" height="450"></canvas>
+      </div>
+      <div class="" id="sContainer">
+          <canvas id="game" class="" width="800" height="500"></canvas>
+      </div>
+  </div>
+</body>
+
+</html>
