@@ -1,0 +1,300 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>Collective HIT</title>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/EasePack.min.js"></script>
+
+</head>
+
+<body>
+  <div id="loader" class="loader full">
+    <h1>LOADINNGGGGGG!!!!!!!!</h1>
+  </div>
+
+  <div id="wrapper" class="">
+
+    <div id="background"></div>
+
+    <div id="ad">
+      <div id="pool" class="threeD full"></div>
+
+      <div id="unitBackground" class="threeD"></div>
+      <div id="logos" class="threeD full"></div>
+
+      <div id="polaroid1" class="threeD full"></div>
+      <div id="polaroid2" class="threeD full"></div>
+      <div id="polaroid3" class="threeD full"></div>
+      <div id="polaroid4" class="threeD full"></div>
+      <div id="cantWaitTxt" class="threeD full"></div>
+      <div id="redCar_footer" class="threeD full"></div>
+      <div id="blueCar_footer" class="threeD full"></div>
+      <div id="tvc_arrow" class="threeD full"></div>
+      <div id="cta_arrow" class="threeD full"></div>
+      <div id="redCar_arrow" class="threeD full"></div>
+      <div id="redCarSmall" class="threeD full"></div>
+      <div id="blueCarSmall" class="threeD full"></div>
+      <div id="three60Toggle" class="threeD full"></div>
+      <div id="blueCar" class="threeD full">
+        <div id='wContainer1'>
+          <div id='wheel1' class="wheel"></div>
+        </div>
+        <div id='wContainer2'>
+          <div id='wheel2' class="wheel"></div>
+        </div>
+      </div>
+      <div id="redCar" class="threeD full">
+        <div id='wContainer3'>
+          <div id='wheel3' class="wheel"></div>
+        </div>
+        <div id='wContainer4'>
+          <div id='wheel4' class="wheel"></div>
+        </div>
+      </div>
+      <div id="redCarBG"></div>
+      <div id="advanced_comfort" class="threeD full"></div>
+      <div id="tvcLink" class="threeD full"></div>
+
+      <div id="hotspots" class="threeD">
+        <div id="relax" class="hotspot">
+          <div class="ripple"></div>
+          <div id="relax_hotspot_off" class="hotspot_off"></div>
+          <div id="label_relax" class="label"></div>
+          <div id="relax_hotspot_on" class="hotspot_on"></div>
+        </div>
+        <div id="three60" class="hotspot">
+          <div class="ripple"></div>
+          <div id="three60_hotspot_off" class="hotspot_off"></div>
+          <div id="label_three60" class="label"></div>
+          <div id="three60_hotspot_on" class="hotspot_on"></div>
+        </div>
+        <div id="handsfree" class="hotspot">
+          <div class="ripple"></div>
+          <div id="handsfree_hotspot_off" class="hotspot_off"></div>
+          <div id="label_handsfree" class="label"></div>
+          <div id="handsfree_hotspot_on" class="hotspot_on"></div>
+        </div>
+
+        <div id='relax_hitArea' class='hitArea cta'></div>
+        <div id='three60_hitArea' class='hitArea cta'></div>
+        <div id="handsfree_hitArea" class='hitArea cta'></div>
+
+
+      </div>
+      <div id="videoPanel" class="full">
+
+        <div id="videoPanel_bg" class="full"></div>
+        <div id="closeImg" class="full closeBtnImg"></div>
+        <div id="close_btn" class="cta"></div>
+        <div id="boot" class="threeD full bootImg"></div>
+        <div id="boot_btn" class="cta"></div>
+        <div id="windscreen" class="threeD full windscreenImg"></div>
+        <div id="windscreen_btn" class="cta "></div>
+        <div id="three60Polaroid" class="threeD full three60PolaroidImg"></div>
+        <div id="three60_btn" class="cta"></div>
+        <div id="features_btn" class="cta"></div>
+        <div id="features" class="threeD full featuresImg"></div>
+        <div id="infoPanelContainer" class="">
+          <div id="relax_panel" class="infoPanel"></div>
+          <div id="handsfree_panel" class="infoPanel"></div>
+          <div id="assistance_panel" class="infoPanel"></div>
+          <div id="connectNav_panel" class="infoPanel"></div>
+          <div id="three60_panel" class="infoPanel"></div>
+          <div id="arrow_left" class="infoPanel"></div>
+          <div id="arrow_right" class="infoPanel"></div>
+          <div id="arrow_left_hitArea"></div>
+          <div id="arrow_right_hitArea"></div>
+          <div id="infoFooter" class="infoPanelFooter pos">
+            <div id="fBtn1" class="footer1 pos">
+
+            </div>
+            <div id="fBtn2" class="footer2 pos">
+              <div id='footer2_arrow'></div>
+            </div>
+            <div id="fBtn3" class="footer3 pos">
+              <div id='footer3_arrow'></div>
+            </div>
+          </div>
+        </div>
+
+        <div id="videoUnit" class="threeD">
+          <div id="videoContainer" class="">
+            <div id="video_frame" class="threeD"></div>
+            <video id="video"></video>
+            <div id="ct_vid"></div>
+
+          </div>
+        </div>
+      </div>
+
+      <div id="videoPanel2" class="full">
+
+        <div id="videoPanel_bg2" class="full"></div>
+        <div id="tvc_closeImg" class="full closeBtnImg"></div>
+        <div id="tvc_close_btn" class="cta"></div>
+
+        <div id="videoUnit2" class="threeD">
+          <div id="videoContainer2" class="">
+            <div id="video_frame2" class="threeD"></div>
+            <video id="video2"></video>
+            <div id="ct_vid2"></div>
+          </div>
+        </div>
+      </div>
+
+      <div id="three60_car" class="full">
+        <div id="panelBG" class="panelBG"></div>
+        <div id="carBG"></div>
+        <div id='three60_container'></div>
+        <div id="pan_left"></div>
+        <div id="pan_right"></div>
+        <div id="closeBtn_360" class="threeD full"></div>
+        <div id="closeBtn_hit"></div>
+      </div>
+      <div id="close_btn_main" class="threeD full"></div>
+      <div id='ad_btns'>
+
+        <div id="ctaDiscover" class="cta"></div>
+        <div id="comfort_logo_hitArea" class="cta"></div>
+        <div id="auto_hitArea" class="cta"></div>
+        <div id="tvc_hitArea" class="cta"></div>
+        <div id="redCarBtn"></div>
+        <div id="blueCarBtn"></div>
+        <div id="three60ToggleBtn" class="cta"></div>
+        <div id="logo_hitArea" class="cta"></div>
+        <div id="close_ad_hit" class="cta"></div>
+      </div>
+    </div>
+
+  </div>
+  <!-- <script src="/scripts/vars.js"></script> -->
+
+  <!--
+  <script>divScraper();</script>
+
+  <script src="/scripts/videoUnit.js"></script>
+  <script src="/scripts/expand.js"></script> -->
+
+  <script type="text/javascript">
+
+
+    // lazyload script
+    /**Loads scripts */
+    function loadScript($url, $callback) {
+      console.log(String(":: LOADER - loading " + $url + " ::"));
+      const filetype = $url.split(".").pop();
+      switch (filetype) {
+        case "js":
+          let script = document.createElement("script");
+          script.type = "text/javascript";
+          if (script.readyState) {
+            //IE
+            script.onreadystatechange = function () {
+              if (
+                script.readyState == "loaded" ||
+                script.readyState == "complete"
+              ) {
+                script.onreadystatechange = null;
+                console.log(
+                  String(":: LOADER - successfully loaded " + $url + " ::")
+                );
+                $callback();
+              }
+            };
+          } else {
+            //Others
+            script.onload = function () {
+              $callback();
+              console.log(
+                String(":: LOADER - successfully loaded " + $url + " ::")
+              );
+            };
+          }
+          script.src = $url;
+          document.getElementsByTagName("head")[0].appendChild(script);
+          break;
+        case "css":
+          let extCSS = document.createElement("link");
+          extCSS.setAttribute("rel", "stylesheet");
+          extCSS.setAttribute("type", "text/css");
+          extCSS.setAttribute("href", $url);
+          document.getElementsByTagName("head")[0].appendChild(extCSS);
+          console.log(String(":: LOADER - successfully loaded " + $url + " ::"));
+          $callback();
+          break;
+      }
+    }
+
+    function loadImage($object, $callback) {
+      console.log(String(":: LOADER - loading " + $object.url + " ::"));
+      const holder = document.getElementById($object.div),
+        image = new Image();
+      image.onload = function () {
+        holder.style.backgroundImage = "url('" + image.src + "')";
+        console.log(String(":: LOADER - successfully loaded " + image.src + " ::"));
+        $callback();
+      };
+      image.src = $object.url;
+    }
+
+    //Thanks to Jack @ Greensock for this sweet loader https://greensock.com/
+    function politeLoad($urls, $onComplete) {
+      let l = $urls.length,
+        loaded = 0,
+        checkProgress = function () {
+          if (++loaded === l && $onComplete) $onComplete();
+        },
+        i,
+        varType;
+      for (i = 0; i < l; i++) {
+        varType = typeof $urls[i];
+        switch (varType) {
+          case "string":
+            loadScript($urls[i], checkProgress); //Using the Enabler script loader to politely load the javascript
+            break;
+          case "object":
+            loadImage($urls[i], checkProgress); //Politely load images
+            break;
+        }
+      }
+    }
+
+    function politeInit() {
+      politeLoad(
+        [
+          "styles/style.css",
+          "styles/video.css",
+          "scripts/fit.min.js",
+          "scripts/vars.js",
+          "scripts/videoUnit.js",
+          "scripts/expand.js",
+          { url: "images/pool.jpg", div: "pool" },
+          { url: "images/polaroid1.png", div: "polaroid1" },
+          { url: "images/polaroid2.png", div: "polaroid2" },
+          { url: "images/polaroid3.png", div: "polaroid3" },
+          { url: "images/polaroid4.png", div: "polaroid4" },
+          { url: "images/cantWaitTxt.png", div: "cantWaitTxt" },
+          { url: "images/background.jpg", div: "unitBackground" },
+          { url: "images/logos.png", div: "logos" },
+          { url: "images/closeBtn_360.png", div: "closeBtn_360" },
+          { url: "images/three60_carBG.png", div: "carBG" },
+          { url: "images/close_btn_main.png", div: "close_btn_main" },
+        ],
+        function () {
+          console.log(":: LOADER - all initial loads complete ::");
+          // function in expand.js
+          expandInit();
+        }
+      );
+    }
+
+    window.addEventListener("load", politeInit);
+
+  </script>
+</body>
+
+</html>
