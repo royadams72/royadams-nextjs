@@ -2,128 +2,84 @@
 <html>
 
 <head>
-    <meta charset="UTF-8">
-    <title>Blackjack Game</title>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <title>Blackjack Game</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-
- <script language="javascript">
-     /* Update clientlibUrl var for server url*/
-    var clientlibUrl = "";
-    var commonAssetsLoaded = false;
-    var mobileLoaded = false; //These are set to true in apps when they have loaded
+  <script>
+    var clientlibUrl = "";          // e.g. "/blackjack/" if assets live there
+    var mobileLoaded = false;
     var deskTopLoaded = false;
 
-      ///*********************Vars for desktop text*********************///
-      ////Winning text, has to be done in chunks to accomodate different sized text
-      var gameSettings = {};
-	    gameSettings.clickThroughURL = "";
-      gameSettings.click = "Click to make";
-      gameSettings.bet = "a bet and";
-      gameSettings.getStarted = 'get started.';
-      gameSettings.badLuck = 'Bad luck';
-      gameSettings.youBusted = 'you have busted';
-      gameSettings.dealerWins = 'Dealer wins';
-      gameSettings.AnotherBet = 'another bet.';
+    function show(el) { el.style.visibility = 'visible'; el.style.display = 'block'; el.style.position = 'relative'; }
+    function hide(el) { el.style.visibility = 'hidden'; el.style.display = 'none'; el.style.position = 'relative'; }
 
-	 // msgtxt.text = "Bad luck you have busted \nClick to make another bet. ";
-      gameSettings.youWon = "You’ve won!";
-      gameSettings.signUp = "Sign up now";
-      gameSettings.toReceive = "to receive a";
-      gameSettings.bonus = "SPECIAL BONUS";
-      gameSettings.youHave = "You have";
-      gameSettings.zero = "£0";
-      gameSettings.fifty = "£50";
-      gameSettings.onehundred = "£100";
-      gameSettings.remaining = "remaining";
+    function debounce(fn, wait) { var t; return function () { clearTimeout(t); t = setTimeout(fn, wait); }; }
 
+    function loadScripts(urls, done) {
+      var i = 0;
+      (function next() {
+        if (i >= urls.length) return done();
+        var src = urls[i++], s = document.createElement('script');
+        s.src = src; s.async = false;
+        s.onload = next;
+        s.onerror = function () { console.error("Failed to load:", src); next(); };
+        document.head.appendChild(s);
+      })();
+    }
 
-        var interval = setInterval(function() {
-            if (document.readyState === 'complete') {
-                clearInterval(interval);
-                console.log(document.readyState)
-                politeInit();
-            }
-        }, 100);
+    function startDesktop() {
+      var m = document.getElementById('mContainer');
+      var s = document.getElementById('sContainer');
+      hide(m); show(s);
+      if (!deskTopLoaded && typeof deskTop === 'function') {
+        console.log('[boot] desktop');
+        deskTopLoaded = true;
+        deskTop();
+      }
+    }
 
-        /***** politeInit loads once page is ready ***************/
-      function politeInit() {
-            function on_resize(c, t) {
-                onresize = function() {
-                    clearTimeout(t);
-                    t = setTimeout(c, 100)
-                };
-                return c;
-            };
+    function startMobile() {
+      var m = document.getElementById('mContainer');
+      var s = document.getElementById('sContainer');
+      show(m); hide(s);
+      if (!mobileLoaded && typeof mobile === 'function') {
+        console.log('[boot] mobile');
+        mobileLoaded = true;
+        mobile();
+      }
+    }
 
-            var checkLoad = function() {
-                var body = document.body,
-                    html = document.documentElement;
-                var width = Math.max(body.scrollWidth, body.offsetWidth, html.clientWidth, html.scrollWidth, html.offsetWidth);
+    function checkLoad() {
+      if (window.innerWidth < 500) startMobile();
+      else startDesktop();
+    }
 
-                if (width < 500) {
-                    TweenMax.set(mContainer, { visibility: "visible", display: "block", position: "relative"});
-                    TweenMax.set(sContainer, { visibility: "hidden", display: "none", position: "relative"});
-
-                    if (!mobileLoaded) {
-                        mobile();
-                    }
-                } else if (width > 500) {
-                    TweenMax.set(mContainer, { visibility: "hidden", display: "none", position: "relative"});
-                    TweenMax.set(sContainer, { visibility: "visible", display: "block", position: "relative" })
-                    if (!deskTopLoaded) {
-
-                        deskTop();
-                    }
-                }
-            }
-            on_resize(function() {
-                checkLoad();
-            });
-
-            //array of all the external js files we want to politely load//
-            var arrExtJs = ["https://cdnjs.cloudflare.com/ajax/libs/pixi.js/3.0.4/pixi.min.js", "https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/gsap.min.js", clientlibUrl + "js/main.js", clientlibUrl + "js/mobile.js"];
-
-            var loadJsIndex = 0;
-            /**
-             * Function loads in an external JS files
-             */
-            function loadExtJavaScript() {
-                // Load in external Javascript file
-                var extJavaScript = document.createElement("script");
-                extJavaScript.setAttribute("type", "text/javascript");
-                extJavaScript.setAttribute("src", arrExtJs[loadJsIndex]);
-                extJavaScript.onload = function() {
-                    jsLoadedHandler();
-                }
-                document.getElementsByTagName("head")[0].appendChild(extJavaScript);
-            }
-            loadExtJavaScript();
-            /**
-             * Fired when an External JS files has been loaded
-             */
-            function jsLoadedHandler() {
-                console.log("JS LOADED (" + arrExtJs[loadJsIndex] + ")");
-                loadJsIndex++;
-                if (loadJsIndex < arrExtJs.length) {
-                    loadExtJavaScript(); // load next JS file
-                } else {
-                    checkLoad();
-                }
-            }
-        }
-    </script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var scripts = [
+        "https://cdnjs.cloudflare.com/ajax/libs/pixi.js/3.0.4/pixi.min.js",
+        "https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js",
+        clientlibUrl + "js/main.js",
+        clientlibUrl + "js/mobile.js" // ok if missing; we continue on error
+      ];
+      loadScripts(scripts, function () {
+        console.log('[boot] all scripts loaded');
+        checkLoad();
+        window.addEventListener('resize', debounce(checkLoad, 120));
+      });
+    });
+  </script>
 </head>
 
 <body>
   <div id="game_container">
-      <div class="" id="mContainer">
-          <canvas id="mobile_game" width="450" height="450"></canvas>
-      </div>
-      <div class="" id="sContainer">
-          <canvas id="game" class="" width="800" height="500"></canvas>
-      </div>
+    <div id="mContainer" style="visibility:hidden;display:none;">
+      <canvas id="mobile_game" width="450" height="450"></canvas>
+    </div>
+    <div id="sContainer" style="visibility:hidden;display:none;">
+      <canvas id="game" width="800" height="500"></canvas>
+    </div>
   </div>
 </body>
 
