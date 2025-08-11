@@ -1,0 +1,193 @@
+
+#clickThrough{
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 600px;
+	height: 70px;
+	z-index: 1500;
+	opacity: 0;
+	cursor: pointer; cursor: hand;
+}
+
+#container{
+	position: absolute;
+	z-index: 1000;
+	width: 600px;
+	height: 350px;
+	border: 1px solid #ccc; 
+}
+
+#scriptSprite {
+	position: absolute;
+	left: 50%;
+	top: 8px;
+	width: 218px;
+	height: 86px;
+	background: url(../images/_expanded/scriptSprite3.png) no-repeat;
+	background-size: 3924px 86px;
+	background-position: 0px 0px;
+	opacity: 0;
+	margin-left: -109px;
+	/*overflow: hidden!important;*/
+	z-index: 900;
+}
+
+
+#ex_carModelContainer {
+	position: absolute;
+	z-index: 800;
+	top: 30px;
+	left: 30px;
+	width: 70px;
+	height: 17px;
+	opacity: 0;
+}
+
+#ex_carModel {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: inherit;
+	height: inherit;
+}
+
+.mustang_blue{
+	background: url(../images/_expanded/mustang_blue.svg) no-repeat!important ;
+}
+
+#endScreen {
+	position: absolute;
+	top:0;
+	left:0;
+	width: 600px;
+	height: 350px;
+	opacity: 0;
+	z-index: 1000;
+	background-image: url(../images/_expanded/endFrameBG.jpg)
+}
+#ex_car_red{
+	position: absolute;
+    left: 10px;
+    top: 150px;
+    width: 185px;
+    height: 120px;
+	opacity: 0;
+	background-image: url(../images/_expanded/exCar_red.png);
+	-ms-transform: scale(0.9,0.9); /* IE 9 */
+    -webkit-transform: scale(0.9,0.9); /* Safari */
+    transform: scale(0.9,0.9);
+}
+#ex_car_yellow{
+    position: absolute;
+    left: 207px;
+    top: 150px;
+    width: 185px;
+    height: 120px;
+	opacity: 0;
+	background-image: url(../images/_expanded/exCar_yellow.png);
+	-ms-transform: scale(0.9,0.9); /* IE 9 */
+    -webkit-transform: scale(0.9,0.9); /* Safari */
+    transform: scale(0.9,0.9);
+}
+
+#ex_car_orange{
+	position: absolute;
+    left: 402px;
+    top: 150px;
+    width: 185px;
+    height: 120px;
+	opacity: 0;
+	background-image: url(../images/_expanded/exCar_orange.png);
+	-ms-transform: scale(0.9,0.9); /* IE 9 */
+    -webkit-transform: scale(0.9,0.9); /* Safari */
+    transform: scale(0.9,0.9);
+}
+
+#ex_plinth {
+	position: absolute;
+	bottom:10px;
+    right: 10px;
+    width: 110px;
+    height: 71px;
+	z-index:1400;
+	background: url(../images/_expanded/plinth.svg) no-repeat;
+	background-size: 110px 71px;
+}
+
+#timeDisplay, #timeToBeat{
+    width: 250px;
+   height: 20px;
+	color: #fb6e2d;
+	font-size: 16px;
+}
+
+#hud{
+	position: absolute;
+	top: 100px;
+    left: 410px;
+	height: 300px;
+	z-index: 800;
+}
+#speedometer{
+	position: absolute;
+	top: 40px;
+	width:60px;
+	height:60px;
+	border: 1px solid #ccc;
+}
+
+#dial{
+	position: absolute;
+	width: 5px;
+	height: 28px;
+	top:0;
+	left:50%;
+	background-color: #000;
+    -ms-transform-origin: 50% 100%; /* IE 9 */
+	-ms-transform: rotate(45deg); /* IE 9 */
+     -webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
+    transform: rotate(45deg);
+    -webkit-transform-origin: 50% 100%; /* Chrome, Safari, Opera */
+     transform-origin: 50% 100%;
+}
+#results{
+    position: absolute;
+    left: 360px;
+    top: 49px;
+    color: #1d4485;
+    font-size: 17px;
+}
+
+#results .twentyPx{
+	 font-size: 20px!important;
+}
+.timeTxt{
+	color:#878787;
+}
+#timeDisplayNum, #timeToBeatNum{
+	color:inherit;
+	font-style: italic;
+	font-weight: bold;
+}
+
+.color3{
+color: #ed1c24!important;
+}
+.color2{
+color:#1d4485!important;
+}
+.color1{
+color: #fb6e2d!important;
+}
+
+
+#tooltip{
+	position:absolute;
+	left: 25px;
+    top: 100px;
+	width:106px;
+	height: 70px;
+	background: url(../images/_expanded/tooltip.png) no-repeat;
+	z-index: 900;
+}

@@ -1,0 +1,152 @@
+/*
+ * Globals
+ */
+
+/* Links */
+a,
+a:focus,
+a:hover {
+  color: #fff;
+}
+
+/* Custom default button */
+.btn-default,
+.btn-default:hover,
+.btn-default:focus {
+  color: #333;
+  text-shadow: none; /* Prevent inheritence from `body` */
+  background-color: #fff;
+  border: 1px solid #fff;
+}
+
+
+/*
+ * Base structure
+ */
+
+html,
+body {
+   
+  height: 100%;
+  background-color: #333;
+}
+body {
+  color: #fff;
+  text-align: center;
+  text-shadow: 0 1px 3px rgba(0,0,0,.5);
+  background: url(../img/generic2.jpg) no-repeat;
+  background-size: cover; 
+}
+.header{
+   background-color: #fff; 
+   top: 0;
+    
+}
+ 
+  
+/* Extra markup and styles for table-esque vertical and horizontal centering */
+#container {
+    
+    min-height: 100%;
+	height: auto !important; /* This line and the next line are not necessary unless you need IE6 support */
+	height: 100%;
+	margin: 0 auto -450px 0; /* the bottom margin is the negative value of the footer's height */
+}
+.footer, .push {
+    display: block;
+    height: 449px; /* .push must be the same height as .footer */
+}
+
+.footer {
+    margin: 0!important;
+}
+.faqs{
+   background-color:#0b1140; 
+    height: 392px;
+}
+
+#accepted_payments img, .faqs img{
+    margin: 0 auto;
+   
+}
+   
+
+   
+
+ #mobile_game{
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+    #mContainer{
+        width:100%;
+        position: relative;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+    }
+
+/*
+ * Footer
+ */
+
+
+#accepted_payments {
+    text-align: center;
+    width: 100%;
+    background: #fff;
+    min-height: 49px;
+    margin-top: 50px;
+    vertical-align: bottom;
+}
+
+/*
+ * Media queries
+ */
+/*
+ * Desktop
+ */
+
+
+@media (min-width: 600px) {
+    #game_container{
+    width:90%;
+       
+    }
+   
+    
+}
+@media (min-width: 768px) {
+  .masthead-brand {
+    float: left;
+  }
+#game_container{
+    width:100%;
+    margin:3% auto 3% auto;
+    
+}
+ #game{
+    display: block;
+    max-width: 100%;
+    height: auto;
+} 
+    #sContainer{
+        width:100%!important;
+    }
+}
+
+@media (min-width: 1200px) {
+ /*#game{
+    display: block;
+    max-width: 900px;
+    height: 500px;
+}  */
+    #game_container{
+    width:80%;
+    margin:3% auto 3% auto;
+    
+}
+    #sContainer{
+        width:66.66%!important;
+    }
+}

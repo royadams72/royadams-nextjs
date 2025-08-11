@@ -1,0 +1,283 @@
+@charset "UTF-8";
+
+/* CSS Document */
+
+body, body * {
+	vertical-align: baseline;
+	height: 100%;
+	border: 0 none;
+	outline: 0;
+	padding: 0;
+	margin: 0;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+
+#expandAd{
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    z-index: 1700;
+    width: 300px;
+    height: 250px;
+    display: block;
+    opacity: 0;
+    cursor: pointer;
+    cursor: hand;
+}
+
+#collapsedShield{
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    z-index: 2000;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    background-color: #fff;
+}
+#container_dc {
+	position: absolute;
+	width: 298px;
+	height: 248px;
+	overflow: hidden!important;
+	border: 1px solid #ccc;
+	z-index: 1000;
+	background-color: #fff;
+	top:0;
+	left:0;
+}
+
+#cta{
+    position: absolute;
+    bottom: 22px;
+    left: 10px;
+    width: 190px;
+    height: 17px;
+    background: url(../images/cta_white2.png) no-repeat;
+	background-position: 1px 0px;
+	/*background-size: 190px 17px;*/
+    z-index: 600;
+    opacity: 1;
+ }
+
+#ctaArrowContainer {
+	width: 12px;
+    height: 7px;
+    position: absolute;
+    top: 5px;
+    left: 2px;
+    overflow: hidden;
+}
+
+#ctaArrow {
+	position: absolute;
+	left: 4px;
+   	width: 6px;
+    height: 7px;
+    background: url(../images/ctaArrow_white.png) no-repeat;
+}
+#cta_blue{
+    position: absolute;
+    bottom: 22px;
+    left: 10px;
+    width: 190px;
+    height: 17px;
+    background: url(../images/cta_blue.png) no-repeat;
+	background-position: 1px 0px;
+	/*background-size: 190px 17px;*/
+    z-index: 600;
+    opacity: 0;
+ }
+
+
+#ctaArrow_blue {
+	position: absolute;
+	left: 4px;
+   	width: 6px;
+    height: 7px;
+    background: url(../images/ctaArrow_blue.png) no-repeat;
+	opacity: 0;
+}
+#plinth {
+	position: absolute;
+	top: 180px;
+    right: -2px;
+	height: 55px;
+	width: 90px;
+	z-index: 999;
+	background: url(../images/_expanded/plinth.svg) no-repeat;
+	background-size: 90px 55px;
+}
+#road_container{
+    position: absolute;
+	/*140px*/
+    top: 140px;
+    width: 300px;
+    height: 125px;
+    perspective: 500px;
+    -webkit-perspective: 500px;
+	opacity: 0;
+}
+
+#road {
+    position: absolute;
+    top: -360px;
+    left: 39px;
+    height: 760px;
+    width: 200px;
+    background-color: #ed1c24;
+    border: 10px solid #00457f;
+    border-top-style: none;
+    border-bottom-style: none;
+	-webkit-transform: rotateX(80deg);
+	-moz-transform: rotateX(80deg);
+	-ms-transform: rotateX(80deg);
+	-o-transform: rotateX(80deg);
+	transform: rotateX(80deg);
+	
+ }
+#lane_container {
+    position: absolute;
+    top: -360px;
+    left: 50px;
+    height: 760px;
+    width: 200px;
+	-webkit-transform: rotateX(80deg);
+	-moz-transform: rotateX(80deg);
+	-ms-transform: rotateX(80deg);
+	-o-transform: rotateX(80deg);
+	transform: rotateX(80deg);
+	
+ }
+
+#car_container {
+	position: absolute;
+	top: 72px;
+	left: 52px;
+	width: 190px;
+	height: 109px;
+	z-index: 800;
+	opacity: 0;
+}
+
+#car_red {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: inherit;
+	height: inherit;
+	background: url(../images/car_red.png) no-repeat;
+}
+
+#car_yellow {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: inherit;
+	height: inherit;
+	background: url(../images/car_yellow.png) no-repeat;
+	opacity: 0;
+}
+
+#car_orange {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: inherit;
+	height: inherit;
+	background: url(../images/car_orange.png) no-repeat;
+	opacity: 0;
+}
+
+#msg1{
+	position: absolute;
+	top: 70px;
+	left: 50%;
+	width: 240px;
+	height: 21px;
+	margin-left: -120px;
+	background: url(../images/msg1.png) no-repeat;
+	opacity: 0;
+}
+
+#carModelContainer {
+	position: absolute;
+	z-index: 800;
+}
+
+#carModel_blue{
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: inherit;
+	height: inherit;
+	background: url(../images/mustang_darkBlue.svg) no-repeat;
+}
+
+#carModel_white{
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: inherit;
+	height: inherit;
+	background: url(../images/mustang_white.svg) no-repeat;
+	opacity: 0;
+}
+
+#script_container {
+	position: absolute;
+	left: -10px;
+	top: -2px;
+	width: 218px;
+	height: 127px;
+	opacity: 0;
+	/*overflow: hidden!important;*/
+	z-index: 700;
+}
+
+#script_blue {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: inherit;
+	height: 86px;
+	background: url(../images/script_blue.png) no-repeat;
+	background-size: 3924px 86px;
+	background-position: 0px 0px;
+	/*overflow: hidden!important;*/
+}
+
+#script_white {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: inherit;
+	height: 86px;
+	background: url(../images/script_white.png) no-repeat;
+	background-size: 3924px 86px;
+	background-position: 0px 0px;
+	opacity: 0;
+}
+
+#script_whiteBG {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: inherit;
+	height: inherit;
+	background: url(../images/script_whiteBG.jpg) no-repeat;
+	opacity: 0;
+}
+
+
+/*
+#lane{
+    position: absolute;
+    height: 150px;
+    width: 5px;
+    background-color: #000;
+    transform: rotateX(50deg);
+}
+*/
+
