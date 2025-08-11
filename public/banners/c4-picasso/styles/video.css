@@ -1,0 +1,109 @@
+#videoUnit {
+  position: absolute;
+  left: 160px;
+  top: 85px;
+  width:802px;
+  height: 432px;
+ 
+  overflow: hidden;
+  display: block;
+}
+#video_frame {
+  position: absolute;
+
+  width:802px;
+height: 432px;
+overflow: hidden;
+display: block;
+background-size: 802px 432px;
+}
+
+#unmuteButton {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  background-size: cover; 
+  background-repeat: no-repeat;
+  overflow: hidden;
+  display: block;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d; 
+}
+
+#videoReplayButton {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  background-size: cover; 
+  background-repeat: no-repeat;
+  overflow: hidden;
+  display: none;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d; 
+}
+
+#videoEndFrame {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  background-size: cover; 
+  background-repeat: no-repeat;
+  overflow: hidden;
+  display: block;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d; 
+}
+
+#videoCover {
+  background: black;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  background-size: cover; 
+  background-repeat: no-repeat;
+  overflow: hidden;
+  display: block;
+}
+
+.video-container {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+ /* visibility: hidden;  */
+}
+
+video {
+    position: absolute;
+    height: 430px;
+    width: 660px;
+    top: -22px;
+    left: 70px;
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  -ms-transform-style: preserve-3d;
+  -o-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+
+   #video2 {
+    height: 530px;
+    width: 860px;
+    top: 100px;
+    left: 200px;
+}
