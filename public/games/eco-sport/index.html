@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Ford ad</title>
+   <script src="https://s0.2mdn.net/ads/studio/Enabler.js"></script>  
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script>
+(Enabler.isInitialized())? enablerInitHandler(): Enabler.addEventListener(studio.events.StudioEvent.INIT,enablerInitHandler);		
+function enablerInitHandler(){
+      
+
+console.log("[adVisibilityHandler]");
+//Enabler.callAfterInitialized(loadJSFile())
+ var arrExtJs =["https://cdnjs.cloudflare.com/ajax/libs/pixi.js/3.0.8/pixi.min.js" ,"https://s0.2mdn.net/ads/studio/cached_libs/tweenmax_1.18.0_499ba64a23378545748ff12d372e59e9_min.js","js/politeLoad.js","js/game.js"];
+var loadJsIndex = 0;
+/**
+* Function loads in an external JS file
+*/
+function loadExtJavaScript() {
+    // Load in external Javascript file
+    var extJavaScript = document.createElement("script");
+    extJavaScript.setAttribute("type", "text/javascript");
+    extJavaScript.setAttribute("src", Enabler.getUrl(arrExtJs[loadJsIndex]));
+    extJavaScript.onload = function() {
+            jsLoadedHandler();
+        }
+    document.getElementsByTagName("head")[0].appendChild(extJavaScript);
+}
+    
+loadExtJavaScript();
+/**
+* Fired when an External JS file has been loaded
+*/
+function jsLoadedHandler(){
+        console.log("JS LOADED (" + arrExtJs[loadJsIndex] + ")");
+        loadJsIndex++;
+
+        if(loadJsIndex < arrExtJs.length){
+            loadExtJavaScript(); // load next JS file
+            }else {
+                loadAssets();
+             console.log("Ad loaded")
+                //making sure game is loaded before clickthrough can be fired
+            }
+        }	 
+    }     
+	
+		</script>    
+    
+</head>
+<body>
+    <div id="expand_content_dc">
+ <div id="game_container">
+                  
+                  
+</div>
+    </div>
+
+</body>
+</html>
