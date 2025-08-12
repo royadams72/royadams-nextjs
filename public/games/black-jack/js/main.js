@@ -20,11 +20,11 @@ var deskTop = function () {
     gameStarted,
     cardStartX,
     updateCardX,
+    gameSettings = window.gameSettings,
     mloader;
 
   var initDeskTop = function () {
     if (dTopAssetsLoaded) return; // <-- hard guard
-    dTopAssetsLoaded = true;
 
     mloader = new PIXI.loaders.Loader();
     mloader.add("ace_hearts", clientlibUrl + "img/cards/ace_hearts.png");
@@ -173,10 +173,7 @@ var deskTop = function () {
         setSprites();
       })
       .on("complete", function (e) {
-        if (!deskTopLoaded) {
-          deskTopLoaded = true;
-          setup();
-        }
+        setup();
       });
   };
 
@@ -195,6 +192,7 @@ var deskTop = function () {
     star = new PIXI.Sprite(mloader.resources.star.texture);
     standImg = new PIXI.Sprite(mloader.resources.standImg.texture);
     hitImg = new PIXI.Sprite(mloader.resources.hitImg.texture);
+    console.log(msgContainer);
 
     stage.addChild(gameBG);
     stage.addChild(gameContainer);
@@ -247,6 +245,8 @@ var deskTop = function () {
   };
 
   var buildHUD = function () {
+    console.log("gameSettings", window.gameSettings);
+
     actionBtns();
     playersDisplay();
     createChips();
@@ -285,6 +285,8 @@ var deskTop = function () {
 
   var dealCard = function (player) {
     //Generate the suit and call function to generate card
+    console.log("dealCard", player);
+
     var n = getRandomNum(1, 4, false, false);
     suit = "";
     if (n == 1) {
@@ -789,15 +791,17 @@ var deskTop = function () {
     msgContainer.buttonMode = true;
 
     var onMakeBet = function () {
+      console.log("onMakebet");
+
       if (!betMade) makeBet();
     };
 
-    msgContainer.on("pointertap", onMakeBet);
+    msgContainer.on("click", onMakeBet);
 
     // STAND
     stand.interactive = true;
     stand.buttonMode = true;
-    stand.on("pointertap", function () {
+    stand.on("click", function () {
       if (betMade && !standingClicked && !hitClicked) {
         standingClicked = true;
         standCards();
@@ -807,7 +811,7 @@ var deskTop = function () {
     // HIT
     hit.interactive = true;
     hit.buttonMode = true;
-    hit.on("pointertap", function () {
+    hit.on("click", function () {
       if (betMade && !hitClicked && !standingClicked) {
         hitClicked = true;
         hitCards();

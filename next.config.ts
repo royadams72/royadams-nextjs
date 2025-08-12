@@ -5,5 +5,11 @@ const nextConfig: NextConfig = {
   sassOptions: {
     includePaths: [path.join(__dirname, "styles")],
   },
+  async rewrites() {
+    return [
+      // /games/black-jack  -> /games/black-jack/index.html
+      { source: "/games/:slug", destination: "/games/:slug/index.html" },
+    ];
+  },
 };
 export default nextConfig;
