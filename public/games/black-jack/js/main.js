@@ -108,10 +108,23 @@ var deskTop = function () {
 
     //listen for progress
     dTopAssetsLoaded = true;
+    const loadingTxt = document.createElement("div");
+    TweenMax.set(loadingTxt, {
+      display: "block",
+      width: "100%",
+      // marginTop: 100, // number, not string
+      height: "100%",
+      fontSize: 30,
+      color: "#fff", // white text
+      textAlign: "center",
+    });
+
+    sContainer.appendChild(loadingTxt);
     mloader.on("progress", function (e) {
       var percnt = Math.round(e.progress);
-      //loadingTxt.innerHTML  = percnt + "% of game loaded";
-      // console.log(percnt);
+      loadingTxt.innerHTML = percnt + "% of game loaded";
+      percnt >= 100 && TweenMax.set(loadingTxt, { display: "none" });
+      console.log(percnt);
     });
     // load resources
     mloader
@@ -137,18 +150,6 @@ var deskTop = function () {
         });
 
         document.getElementById("sContainer").appendChild(renderer.view);
-
-        // cardStringArray = [
-        //   "two",
-        //   "three",
-        //   "four",
-        //   "five",
-        //   "six",
-        //   "seven",
-        //   "eight",
-        //   "nine",
-        //   "ten",
-        // ];
         dealerCardArr = [];
         playerCardArr = [];
         cardsDealtArr = [];
@@ -732,57 +733,6 @@ var deskTop = function () {
     TweenMax.delayedCall(1.7, dealCard, ["dealer"]);
   };
 
-  // var addListeners = function () {
-  //   stand = btnArray[0];
-  //   hit = btnArray[1];
-  //   msgContainer.interactive = true;
-  //   msgContainer.buttonMode = true;
-  //   msgContainer.click = function (mouseData) {
-  //     if (!betMade) {
-  //       makeBet();
-  //     }
-  //   };
-  //   msgContainer.touchstart = function (touchData) {
-  //     if (!m_betMade) {
-  //       makeBet();
-  //     }
-  //   };
-
-  //   stand.interactive = true;
-  //   stand.buttonMode = true;
-  //   stand.click = function (mouseData) {
-  //     if (betMade && !standingClicked && !hitClicked) {
-  //       standingClicked = true;
-  //       standCards();
-  //     }
-  //   };
-  //   stand.touchstart = function (touchData) {
-  //     if (m_betMade && !m_standingClicked && !m_hitClicked) {
-  //       m_standingClicked = true;
-  //       standCards();
-  //     }
-  //   };
-
-  //   hit.interactive = true;
-  //   hit.buttonMode = true;
-  //   hit.click = function (mouseData) {
-  //     if (betMade && !hitClicked && !standingClicked) {
-  //       hitClicked = true;
-  //       hitCards();
-  //     }
-  //   };
-
-  //   hit.touchstart = function (touchData) {
-  //     if (m_betMade && !m_hitClicked && !m_standingClicked) {
-  //       m_hitClicked = true;
-  //       hitCards();
-  //     }
-  //   };
-
-  //   clickThrough.addEventListener("click", gotoURL);
-  //   clickThrough.addEventListener("touchstart", gotoURL);
-  // };
-
   var addListeners = function () {
     stand = btnArray[0];
     hit = btnArray[1];
@@ -832,6 +782,7 @@ var deskTop = function () {
       container.buttonMode = true;
     }
   };
+
   var btnInActive = function (c, addFilter) {
     var container = c;
     //addFilter = true;
@@ -982,6 +933,7 @@ var deskTop = function () {
     dealCard("player");
     stopTweens(tweenArray);
   };
+
   var btnAnim = function () {
     pulse(btnArray[0]);
     pulse(btnArray[1]);

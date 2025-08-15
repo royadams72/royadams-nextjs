@@ -1,4 +1,4 @@
-export const gameSettings = {
+const gameCopy = {
   AnotherBet: "another bet.",
   bet: "a bet and",
   badLuck: "Bad luck",
@@ -13,7 +13,11 @@ export const gameSettings = {
   toReceive: "to receive a",
   youWon: "You've won!",
   youBusted: "you have busted",
-  youHave: "You have",
+  youHave100: "You have £100 remaining",
+  youHave50: "You have £50 remaining",
+  youHave0: "You have £0 remaining",
   remaining: "remaining",
   zero: "£0",
 };
+
+export default gameCopy;

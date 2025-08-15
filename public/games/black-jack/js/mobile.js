@@ -23,96 +23,85 @@ var mobile = function () {
     centerStage;
 
   var initMobile = function () {
-    if (!commonAssetsLoaded) {
-      //if commonn assets not loaded create loader object, else, just add to loader
-      mloader = new PIXI.loaders.Loader();
-      // add resources
-      mloader.add("ace_hearts", clientlibUrl + "img/cards/ace_hearts.png");
-      mloader.add("two_hearts", clientlibUrl + "img/cards/two_hearts.png");
-      mloader.add("three_hearts", clientlibUrl + "img/cards/three_hearts.png");
-      mloader.add("four_hearts", clientlibUrl + "img/cards/four_hearts.png");
-      mloader.add("five_hearts", clientlibUrl + "img/cards/five_hearts.png");
-      mloader.add("six_hearts", clientlibUrl + "img/cards/six_hearts.png");
-      mloader.add("seven_hearts", clientlibUrl + "img/cards/seven_hearts.png");
-      mloader.add("eight_hearts", clientlibUrl + "img/cards/eight_hearts.png");
-      mloader.add("nine_hearts", clientlibUrl + "img/cards/nine_hearts.png");
-      mloader.add("ten_hearts", clientlibUrl + "img/cards/ten_hearts.png");
-      mloader.add("j_hearts", clientlibUrl + "img/cards/j_hearts.png");
-      mloader.add("k_hearts", clientlibUrl + "img/cards/k_hearts.png");
-      mloader.add("q_hearts", clientlibUrl + "img/cards/q_hearts.png");
+    if (!mobileAssetsLoaded) return;
+    //if commonn assets not loaded create loader object, else, just add to loader
+    mloader = new PIXI.loaders.Loader();
+    // add resources
+    mloader.add("ace_hearts", clientlibUrl + "img/cards/ace_hearts.png");
+    mloader.add("two_hearts", clientlibUrl + "img/cards/two_hearts.png");
+    mloader.add("three_hearts", clientlibUrl + "img/cards/three_hearts.png");
+    mloader.add("four_hearts", clientlibUrl + "img/cards/four_hearts.png");
+    mloader.add("five_hearts", clientlibUrl + "img/cards/five_hearts.png");
+    mloader.add("six_hearts", clientlibUrl + "img/cards/six_hearts.png");
+    mloader.add("seven_hearts", clientlibUrl + "img/cards/seven_hearts.png");
+    mloader.add("eight_hearts", clientlibUrl + "img/cards/eight_hearts.png");
+    mloader.add("nine_hearts", clientlibUrl + "img/cards/nine_hearts.png");
+    mloader.add("ten_hearts", clientlibUrl + "img/cards/ten_hearts.png");
+    mloader.add("j_hearts", clientlibUrl + "img/cards/j_hearts.png");
+    mloader.add("k_hearts", clientlibUrl + "img/cards/k_hearts.png");
+    mloader.add("q_hearts", clientlibUrl + "img/cards/q_hearts.png");
 
-      mloader.add("ace_spades", clientlibUrl + "img/cards/ace_spades.png");
-      mloader.add("two_spades", clientlibUrl + "img/cards/two_spades.png");
-      mloader.add("three_spades", clientlibUrl + "img/cards/three_spades.png");
-      mloader.add("four_spades", clientlibUrl + "img/cards/four_spades.png");
-      mloader.add("five_spades", clientlibUrl + "img/cards/five_spades.png");
-      mloader.add("six_spades", clientlibUrl + "img/cards/six_spades.png");
-      mloader.add("seven_spades", clientlibUrl + "img/cards/seven_spades.png");
-      mloader.add("eight_spades", clientlibUrl + "img/cards/eight_spades.png");
-      mloader.add("nine_spades", clientlibUrl + "img/cards/nine_spades.png");
-      mloader.add("ten_spades", clientlibUrl + "img/cards/ten_spades.png");
-      mloader.add("j_spades", clientlibUrl + "img/cards/j_spades.png");
-      mloader.add("k_spades", clientlibUrl + "img/cards/k_spades.png");
-      mloader.add("q_spades", clientlibUrl + "img/cards/q_spades.png");
+    mloader.add("ace_spades", clientlibUrl + "img/cards/ace_spades.png");
+    mloader.add("two_spades", clientlibUrl + "img/cards/two_spades.png");
+    mloader.add("three_spades", clientlibUrl + "img/cards/three_spades.png");
+    mloader.add("four_spades", clientlibUrl + "img/cards/four_spades.png");
+    mloader.add("five_spades", clientlibUrl + "img/cards/five_spades.png");
+    mloader.add("six_spades", clientlibUrl + "img/cards/six_spades.png");
+    mloader.add("seven_spades", clientlibUrl + "img/cards/seven_spades.png");
+    mloader.add("eight_spades", clientlibUrl + "img/cards/eight_spades.png");
+    mloader.add("nine_spades", clientlibUrl + "img/cards/nine_spades.png");
+    mloader.add("ten_spades", clientlibUrl + "img/cards/ten_spades.png");
+    mloader.add("j_spades", clientlibUrl + "img/cards/j_spades.png");
+    mloader.add("k_spades", clientlibUrl + "img/cards/k_spades.png");
+    mloader.add("q_spades", clientlibUrl + "img/cards/q_spades.png");
 
-      mloader.add("ace_clubs", clientlibUrl + "img/cards/ace_clubs.png");
-      mloader.add("two_clubs", clientlibUrl + "img/cards/two_clubs.png");
-      mloader.add("three_clubs", clientlibUrl + "img/cards/three_clubs.png");
-      mloader.add("four_clubs", clientlibUrl + "img/cards/four_clubs.png");
-      mloader.add("five_clubs", clientlibUrl + "img/cards/five_clubs.png");
-      mloader.add("six_clubs", clientlibUrl + "img/cards/six_clubs.png");
-      mloader.add("seven_clubs", clientlibUrl + "img/cards/seven_clubs.png");
-      mloader.add("eight_clubs", clientlibUrl + "img/cards/eight_clubs.png");
-      mloader.add("nine_clubs", clientlibUrl + "img/cards/nine_clubs.png");
-      mloader.add("ten_clubs", clientlibUrl + "img/cards/ten_clubs.png");
-      mloader.add("j_clubs", clientlibUrl + "img/cards/j_clubs.png");
-      mloader.add("k_clubs", clientlibUrl + "img/cards/k_clubs.png");
-      mloader.add("q_clubs", clientlibUrl + "img/cards/q_clubs.png");
+    mloader.add("ace_clubs", clientlibUrl + "img/cards/ace_clubs.png");
+    mloader.add("two_clubs", clientlibUrl + "img/cards/two_clubs.png");
+    mloader.add("three_clubs", clientlibUrl + "img/cards/three_clubs.png");
+    mloader.add("four_clubs", clientlibUrl + "img/cards/four_clubs.png");
+    mloader.add("five_clubs", clientlibUrl + "img/cards/five_clubs.png");
+    mloader.add("six_clubs", clientlibUrl + "img/cards/six_clubs.png");
+    mloader.add("seven_clubs", clientlibUrl + "img/cards/seven_clubs.png");
+    mloader.add("eight_clubs", clientlibUrl + "img/cards/eight_clubs.png");
+    mloader.add("nine_clubs", clientlibUrl + "img/cards/nine_clubs.png");
+    mloader.add("ten_clubs", clientlibUrl + "img/cards/ten_clubs.png");
+    mloader.add("j_clubs", clientlibUrl + "img/cards/j_clubs.png");
+    mloader.add("k_clubs", clientlibUrl + "img/cards/k_clubs.png");
+    mloader.add("q_clubs", clientlibUrl + "img/cards/q_clubs.png");
 
-      mloader.add("ace_diamonds", clientlibUrl + "img/cards/ace_diamonds.png");
-      mloader.add("two_cdiamonds", clientlibUrl + "img/cards/two_diamonds.png");
-      mloader.add(
-        "three_diamonds",
-        clientlibUrl + "img/cards/three_diamonds.png"
-      );
-      mloader.add(
-        "four_diamonds",
-        clientlibUrl + "img/cards/four_diamonds.png"
-      );
-      mloader.add(
-        "five_diamonds",
-        clientlibUrl + "img/cards/five_diamonds.png"
-      );
-      mloader.add("six_diamonds", clientlibUrl + "img/cards/six_diamonds.png");
-      mloader.add(
-        "seven_diamonds",
-        clientlibUrl + "img/cards/seven_diamonds.png"
-      );
-      mloader.add(
-        "eight_diamonds",
-        clientlibUrl + "img/cards/eight_diamonds.png"
-      );
-      mloader.add(
-        "nine_diamonds",
-        clientlibUrl + "img/cards/nine_diamonds.png"
-      );
-      mloader.add("ten_diamonds", clientlibUrl + "img/cards/ten_diamonds.png");
-      mloader.add("j_diamonds", clientlibUrl + "img/cards/j_diamonds.png");
-      mloader.add("k_diamonds", clientlibUrl + "img/cards/k_diamonds.png");
-      mloader.add("q_diamonds", clientlibUrl + "img/cards/q_diamonds.png");
+    mloader.add("ace_diamonds", clientlibUrl + "img/cards/ace_diamonds.png");
+    mloader.add("two_diamonds", clientlibUrl + "img/cards/two_diamonds.png");
+    mloader.add(
+      "three_diamonds",
+      clientlibUrl + "img/cards/three_diamonds.png"
+    );
+    mloader.add("four_diamonds", clientlibUrl + "img/cards/four_diamonds.png");
+    mloader.add("five_diamonds", clientlibUrl + "img/cards/five_diamonds.png");
+    mloader.add("six_diamonds", clientlibUrl + "img/cards/six_diamonds.png");
+    mloader.add(
+      "seven_diamonds",
+      clientlibUrl + "img/cards/seven_diamonds.png"
+    );
+    mloader.add(
+      "eight_diamonds",
+      clientlibUrl + "img/cards/eight_diamonds.png"
+    );
+    mloader.add("nine_diamonds", clientlibUrl + "img/cards/nine_diamonds.png");
+    mloader.add("ten_diamonds", clientlibUrl + "img/cards/ten_diamonds.png");
+    mloader.add("j_diamonds", clientlibUrl + "img/cards/j_diamonds.png");
+    mloader.add("k_diamonds", clientlibUrl + "img/cards/k_diamonds.png");
+    mloader.add("q_diamonds", clientlibUrl + "img/cards/q_diamonds.png");
 
-      mloader.add("chip_100", clientlibUrl + "img/100chip.png");
-      mloader.add("chip_50", clientlibUrl + "img/50chip.png");
-      mloader.add("chipGlow", clientlibUrl + "img/chipGlow.png");
-      mloader.add("logo", clientlibUrl + "img/logo.png");
-      mloader.add("cardBack", clientlibUrl + "img/card_back.png");
+    mloader.add("chip_100", clientlibUrl + "img/100chip.png");
+    mloader.add("chip_50", clientlibUrl + "img/50chip.png");
+    mloader.add("chipGlow", clientlibUrl + "img/chipGlow.png");
+    mloader.add("logo", clientlibUrl + "img/logo.png");
+    mloader.add("cardBack", clientlibUrl + "img/card_back.png");
 
-      mloader.add("standImg", clientlibUrl + "img/stand.png");
-      mloader.add("hitImg", clientlibUrl + "img/hit.png");
-      mloader.add("btnGlow", clientlibUrl + "img/btnGlow.png");
-      commonAssetsLoaded = true;
-      //console.log(commonAssetsLoaded);
-    }
+    mloader.add("standImg", clientlibUrl + "img/stand.png");
+    mloader.add("hitImg", clientlibUrl + "img/hit.png");
+    mloader.add("btnGlow", clientlibUrl + "img/btnGlow.png");
+
     mloader.add("m_ctaImg", clientlibUrl + "img/mobile/cta.png");
     mloader.add("m_gameBG", clientlibUrl + "img/mobile/mobileBG.jpg");
     mloader.add("m_msgBG", clientlibUrl + "img/mobile/m_msgBG.png");
@@ -121,8 +110,8 @@ var mobile = function () {
     //listen for progress
     mloader.on("progress", function (e) {
       var percnt = Math.round(e.progress);
-      //loadingTxt.innerHTML  = percnt + "% of game loaded";
-      // console.log(percnt);
+      loadingTxt.innerHTML = percnt + "% of game loaded";
+      console.log(percnt);
     });
     // load resources
     mloader.load(function (loader, resources) {

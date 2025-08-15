@@ -5,50 +5,70 @@
   <meta charset="UTF-8" />
   <title>Blackjack Game</title>
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <link rel="stylesheet" href="../../styles/shared.css">
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- <script src="https://cdn.jsdelivr.net/npm/@pixi/filter-drop-shadow/dist/filter-drop-shadow.min.js"></script> -->
+
 
   <script>
-    var clientlibUrl = "black-jack/";          // e.g. "/blackjack/" if assets live there
+    var clientlibUrl = "./black-jack/";
     var mobileLoaded = false;
     var deskTopLoaded = false;
 
-
     function show(el) { el.style.visibility = 'visible'; el.style.display = 'block'; el.style.position = 'relative'; }
     function hide(el) { el.style.visibility = 'hidden'; el.style.display = 'none'; el.style.position = 'relative'; }
-
     function debounce(fn, wait) { var t; return function () { clearTimeout(t); t = setTimeout(fn, wait); }; }
 
-    function loadScripts(urls, done) {
-      var i = 0;
-      (function next() {
-        if (i >= urls.length) return done();
-        var src = urls[i++], s = document.createElement('script');
-        s.src = src; s.async = false;
-        s.onload = next;
-        s.onerror = function () { console.error("Failed to load:", src); next(); };
-        document.head.appendChild(s);
-      })();
+    async function loadVendors() {
+      // load non-module libs first (they attach to window)
+
+      await new Promise((res, rej) => {
+        const s = document.createElement('script');
+        s.src = "https://cdnjs.cloudflare.com/ajax/libs/pixi.js/6.5.8/browser/pixi.min.js";
+        s.onload = res; s.onerror = rej; document.head.appendChild(s);
+      });
+      await new Promise((res, rej) => {
+        const s = document.createElement('script');
+        s.src = "https://cdn.jsdelivr.net/npm/pixi-filters@4/dist/pixi-filters.min.js";
+        s.onload = res; s.onerror = rej; document.head.appendChild(s);
+      });
+      await new Promise((res, rej) => {
+        const s = document.createElement('script');
+        s.src = "https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js";
+        s.onload = res; s.onerror = rej; document.head.appendChild(s);
+      });
     }
 
-    function startDesktop() {
-      var m = document.getElementById('mContainer');
-      var s = document.getElementById('sContainer');
+    let DesktopMod, MobileMod;
+
+    async function loadBootstraps() {
+      // ES modules -> use dynamic import to access their exports
+      const [d, m] = await Promise.all([
+        import(`${clientlibUrl}platform/bootstrap.desktop.js`),
+        import(`${clientlibUrl}platform/bootstrap.mobile.js`),
+      ]);
+      DesktopMod = d;
+      MobileMod = m;
+    }
+
+    async function startDesktop() {
+      const m = document.getElementById('mContainer');
+      const s = document.getElementById('sContainer');
       hide(m); show(s);
-      if (!deskTopLoaded && typeof deskTop === 'function') {
-        console.log('[boot] desktop');
+      if (!deskTopLoaded) {
         deskTopLoaded = true;
-        deskTop();
+        // pass clientlibUrl if your bootstrap expects it
+        await DesktopMod.bootstrapDesktop(clientlibUrl);
       }
     }
 
-    function startMobile() {
-      var m = document.getElementById('mContainer');
-      var s = document.getElementById('sContainer');
+    async function startMobile() {
+      const m = document.getElementById('mContainer');
+      const s = document.getElementById('sContainer');
       show(m); hide(s);
-      if (!mobileLoaded && typeof mobile === 'function') {
-        console.log('[boot] mobile');
+      if (!mobileLoaded) {
         mobileLoaded = true;
-        mobile();
+        await MobileMod.bootstrapMobile(clientlibUrl);
       }
     }
 
@@ -57,32 +77,30 @@
       else startDesktop();
     }
 
-    document.addEventListener('DOMContentLoaded', function () {
-      var scripts = [
-        "https://cdnjs.cloudflare.com/ajax/libs/pixi.js/3.0.4/pixi.min.js",
-        "https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js",
-        clientlibUrl + "js/gameSettings.js",
-        clientlibUrl + "js/main.js",
-        clientlibUrl + "js/mobile.js" // ok if missing; we continue on error
-      ];
-      loadScripts(scripts, function () {
-        console.log('[boot] all scripts loaded');
-        checkLoad();
-        window.addEventListener('resize', debounce(checkLoad, 120));
-      });
+    document.addEventListener('DOMContentLoaded', async function () {
+      await loadVendors();
+      await loadBootstraps();
+      checkLoad();
+      window.addEventListener('resize', debounce(checkLoad, 120));
     });
   </script>
+
+
+
+
 </head>
 
 <body>
-  <div id="game_container">
-    <div id="mContainer" style="visibility:hidden;display:none;">
-      <canvas id="mobile_game" width="450" height="450"></canvas>
+  <main>
+    <div id="game_container">
+      <div id="mContainer" style="visibility:hidden;display:none;">
+        <canvas id="mobile_game" width="450" height="450"></canvas>
+      </div>
+      <div id="sContainer" style="visibility:hidden;display:none;">
+        <canvas id="game" width="800" height="500"></canvas>
+      </div>
     </div>
-    <div id="sContainer" style="visibility:hidden;display:none;">
-      <canvas id="game" width="800" height="500"></canvas>
-    </div>
-  </div>
+  </main>
 </body>
 
 </html>
