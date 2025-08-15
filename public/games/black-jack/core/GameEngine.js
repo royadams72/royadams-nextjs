@@ -260,6 +260,7 @@ export default class GameEngine {
       if (this.betMade && !this.standingClicked && !this.hitClicked) {
         this.standingClicked = true;
         this._standCards();
+        stopTweens(this.tweens);
       }
     });
 
@@ -270,6 +271,7 @@ export default class GameEngine {
       if (this.betMade && !this.hitClicked && !this.standingClicked) {
         this.hitClicked = true;
         this._hit();
+        stopTweens(this.tweens);
       }
     });
 
@@ -284,7 +286,9 @@ export default class GameEngine {
     TweenMax.delayedCall(0.32, () => this._deal("dealer"));
     this._deal("player");
     TweenMax.delayedCall(1.5, () => this._deal("player"));
-    TweenMax.delayedCall(1.7, () => this._deal("dealer"));
+    TweenMax.delayedCall(1.7, () => {
+      this._deal("dealer");
+    });
   }
 
   _deal(who) {
@@ -518,7 +522,8 @@ export default class GameEngine {
     // For the first TWO bets, we are playing a hand
     if (this.betCount <= 2) {
       this.betMade = true;
-
+      const delay = this.betCount === 1 ? 0.5 : 4;
+      TweenMax.delayedCall(delay, () => this._pulseBtns(this.btnArray));
       // block re-clicking the banner during the hand
       this.msgContainer.interactive = false;
       this.msgContainer.buttonMode = false;
@@ -543,9 +548,9 @@ export default class GameEngine {
         // disable the remaining chip as well
         this._btnInactive(this.chips[0]);
         this._btnInactive(this.chips[1]);
-
         this._resetCards();
       }
+
       return;
     }
   }
