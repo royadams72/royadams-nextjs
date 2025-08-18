@@ -1,4 +1,3 @@
-// game/core/GameEngine.js
 import {
   buildCardManifests,
   buildStaticManifests,
@@ -21,9 +20,8 @@ export default class GameEngine {
     this.config = config;
     this.base = clientlibUrl;
     this.gameCopy = gameCopy;
-    this.mountOverlay = mountOverlay; // DOM node for click-through overlay etc.
+    this.mountOverlay = mountOverlay;
 
-    // state
     this.dealerCards = [];
     this.playerCards = [];
     this.dealtContainers = [];
@@ -43,9 +41,9 @@ export default class GameEngine {
   }
 
   load(onProgress) {
-    const loader = new PIXI.Loader(); // reuse global loader
+    const loader = new PIXI.Loader();
     this.loader = loader;
-    // avoid re-adding if already added
+
     if (!this._assetsAdded) {
       for (const a of [
         ...buildCardManifests(this.base),
@@ -56,6 +54,7 @@ export default class GameEngine {
       }
       this._assetsAdded = true;
     }
+
     onProgress &&
       loader.onProgress.add((e) => onProgress(Math.round(e.progress)));
     return new Promise((res) => loader.load(() => res(loader.resources)));
@@ -69,23 +68,21 @@ export default class GameEngine {
     const mountEl = document.getElementById(mountId);
     const viewEl = document.getElementById(viewId) || undefined;
 
-    // v6: autoDetectRenderer(options) — no "new", one options object
     this.renderer = PIXI.autoDetectRenderer({
       width: w,
       height: h,
-      view: viewEl, // will be undefined if not found (Pixi will create one)
-      backgroundAlpha: 0, // same as transparent: true
+      view: viewEl,
+      backgroundAlpha: 0,
       antialias: true,
     });
 
-    // only append if Pixi had to create a canvas (i.e., your view was missing)
     if (!viewEl && mountEl) {
       console.warn(
         `[GameEngine] Canvas #${viewId} not found. Created a new one.`
       );
       mountEl.appendChild(this.renderer.view);
     }
-    // overlay button
+
     this.clickThrough = document.createElement("button");
     Object.assign(this.clickThrough.style, {
       display: "none",
@@ -95,17 +92,16 @@ export default class GameEngine {
       opacity: 0,
       cursor: "pointer",
     });
+
     this.mountOverlay?.appendChild(this.clickThrough);
     this.clickThrough.addEventListener("click", () => {
       if (this.gameCopy.clickThroughURL)
         window.location = this.gameCopy.clickThroughURL;
     });
 
-    // containers
     this.gameContainer = new PIXI.Container();
     this.msgContainer = new PIXI.Container();
 
-    // sprites from config keys
     const R = this.loader.resources;
 
     this.bg = new PIXI.Sprite(R[this.config.assets.bg].texture);
@@ -114,14 +110,12 @@ export default class GameEngine {
     this.cta = new PIXI.Sprite(R[this.config.assets.cta].texture);
     this.winScreen = new PIXI.Container();
     this.logo = new PIXI.Sprite(R.logo.texture);
-    // layout
     const sh = shadowFilter();
-    // if (sh) this.msgContainer.filters = [sh];
+
     this.stage.addChild(this.bg);
     this.stage.addChild(this.gameContainer);
     this.stage.addChild(this.logo);
 
-    // logo pos
     const lp = this.config.positions.logo;
     if (lp.xCenter) {
       this.logo.x = this.renderer.width / 2;
@@ -131,7 +125,7 @@ export default class GameEngine {
       this.logo.scale.set(lp.scale ?? 1);
     }
     this.logo.anchor.set(0.5);
-    // msg
+
     this.msgContainer.addChild(this.msgBG);
     const mp = this.config.positions.msg;
     this.msgContainer.pivot.set(this.msgContainer.width / 2, 0);
@@ -139,15 +133,12 @@ export default class GameEngine {
     this.msgContainer.y = mp.y;
     this.msgContainer.filters = [sh];
 
-    // score labels
     this._buildHUD();
 
-    // animate
     this._raf = requestAnimationFrame(this._tick);
   }
 
   start() {
-    // enable chips, listeners, and start first deal
     for (const c of this.chips) pulseGlow(c, this.tweens);
     this._addListeners();
     this._firstDeal();
@@ -202,18 +193,16 @@ export default class GameEngine {
       ...copyStyle,
       fontSize: 40,
     });
-    // var fourthTxt = new PIXI.Text( this.gameCopy.welcome, { font: f.small, fill: f.fill, align: f.align });
 
     this.winScreen.addChild(this.cta);
-    // this.winScreen.addChild(fourthTxt);
     this.winScreen.addChild(thirdTxt);
     this.winScreen.addChild(SecondTxt);
     this.winScreen.addChild(firstTxt);
     this.winScreen.pivot.set(
       this.winScreen.width / 2,
       this.winScreen.height / 2
-    ); //only has width after children added
-    this.winScreen.x = this.renderer.width / 2; //Centre win message to the reelContainer
+    );
+    this.winScreen.x = this.renderer.width / 2;
     this.winScreen.y = 90;
     this.winScreen.alpha = 0;
 
@@ -253,7 +242,6 @@ export default class GameEngine {
     this.msgContainer.buttonMode = true;
     this.msgContainer.on("click", onMakeBet).on("touchstart", onMakeBet);
 
-    // STAND
     stand.interactive = true;
     stand.buttonMode = true;
     stand.on("click", () => {
@@ -264,7 +252,6 @@ export default class GameEngine {
       }
     });
 
-    // HIT
     hit.interactive = true;
     hit.buttonMode = true;
     hit.on("click", () => {
@@ -282,17 +269,13 @@ export default class GameEngine {
   }
 
   _firstDeal() {
-    // same logic for both platforms; just timings
     TweenMax.delayedCall(0.32, () => this._deal("dealer"));
     this._deal("player");
     TweenMax.delayedCall(1.5, () => this._deal("player"));
-    TweenMax.delayedCall(1.7, () => {
-      this._deal("dealer");
-    });
+    TweenMax.delayedCall(1.7, () => this._deal("dealer"));
   }
 
   _deal(who) {
-    // choose suit
     const suit = SUITS[randInt(1, 4) - 1];
 
     if (who === "player") this._dealToPlayer(suit);
@@ -528,7 +511,6 @@ export default class GameEngine {
       this.msgContainer.interactive = false;
       this.msgContainer.buttonMode = false;
 
-      // chip/message bookkeeping (same as before)
       if (this.bets === 0) this.bets = randInt(1, 2);
       if (this.betCount === 1) {
         // after first bet
@@ -565,7 +547,7 @@ export default class GameEngine {
         y: -200,
         onComplete: () => {
           if (++done === total) {
-            this._resetVars(); // <-- clear state
+            this._resetVars();
             if (autoDeal) {
               TweenMax.delayedCall(0.7, () => this._firstDeal());
             }
@@ -625,10 +607,11 @@ export default class GameEngine {
   }
 
   _playerWins() {
-    // this.msgTxt.alpha = 0;
     for (const c of this.chips) c.alpha = 0;
+
     TweenMax.delayedCall(2, () => {
-      TweenMax.to([this.gameContainer, this.msgContainer], 0.3, { alpha: 0 });
+      TweenMax.set(this.msgContainer, { visible: true, alpha: 0 });
+      TweenMax.to(this.gameContainer, 0.3, { alpha: 0 });
       TweenMax.to(this.logo, 0.3, {
         x: this.renderer.width / 2,
         y: this.logo.y + 60,

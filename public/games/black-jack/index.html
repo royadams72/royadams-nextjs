@@ -6,8 +6,9 @@
   <title>Blackjack Game</title>
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <link rel="stylesheet" href="../../styles/shared.css">
+  <link rel="stylesheet" href="./black-jack/styles.css">
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <!-- <script src="https://cdn.jsdelivr.net/npm/@pixi/filter-drop-shadow/dist/filter-drop-shadow.min.js"></script> -->
+
 
 
   <script>
@@ -20,7 +21,6 @@
     function debounce(fn, wait) { var t; return function () { clearTimeout(t); t = setTimeout(fn, wait); }; }
 
     async function loadVendors() {
-      // load non-module libs first (they attach to window)
 
       await new Promise((res, rej) => {
         const s = document.createElement('script');
@@ -39,49 +39,24 @@
       });
     }
 
-    let DesktopMod, MobileMod;
-
-    async function loadBootstraps() {
-      // ES modules -> use dynamic import to access their exports
-      const [d, m] = await Promise.all([
-        import(`${clientlibUrl}platform/bootstrap.desktop.js`),
-        import(`${clientlibUrl}platform/bootstrap.mobile.js`),
-      ]);
-      DesktopMod = d;
-      MobileMod = m;
+    async function loadBootstrap() {
+      return import(`${clientlibUrl}platform/bootstrap.js`);
     }
 
-    async function startDesktop() {
-      const m = document.getElementById('mContainer');
-      const s = document.getElementById('sContainer');
-      hide(m); show(s);
-      if (!deskTopLoaded) {
-        deskTopLoaded = true;
-        // pass clientlibUrl if your bootstrap expects it
-        await DesktopMod.bootstrapDesktop(clientlibUrl);
+
+    document.addEventListener("DOMContentLoaded", async function () {
+      try {
+        await loadVendors();
+
+        const { bootstrapDesktop } = await loadBootstrap();
+
+        const cc = document.getElementById("canvasContainer");
+        cc && (cc.style.visibility = "visible", cc.style.display = "block", cc.style.position = "relative");
+
+        await bootstrapDesktop(clientlibUrl);
+      } catch (err) {
+        console.error("Startup failed:", err);
       }
-    }
-
-    async function startMobile() {
-      const m = document.getElementById('mContainer');
-      const s = document.getElementById('sContainer');
-      show(m); hide(s);
-      if (!mobileLoaded) {
-        mobileLoaded = true;
-        await MobileMod.bootstrapMobile(clientlibUrl);
-      }
-    }
-
-    function checkLoad() {
-      if (window.innerWidth < 500) startMobile();
-      else startDesktop();
-    }
-
-    document.addEventListener('DOMContentLoaded', async function () {
-      await loadVendors();
-      await loadBootstraps();
-      checkLoad();
-      window.addEventListener('resize', debounce(checkLoad, 120));
     });
   </script>
 
@@ -92,12 +67,9 @@
 
 <body>
   <main>
-    <div id="game_container">
-      <div id="mContainer" style="visibility:hidden;display:none;">
-        <canvas id="mobile_game" width="450" height="450"></canvas>
-      </div>
-      <div id="sContainer" style="visibility:hidden;display:none;">
-        <canvas id="game" width="800" height="500"></canvas>
+    <div id="game_container" class="gameContainer">
+      <div id="canvasContainer" class="canvacanvasContainer" style="visibility:hidden;display:none;">
+        <canvas id="game" class="gameCanvas" width="800" height="500"></canvas>
       </div>
     </div>
   </main>

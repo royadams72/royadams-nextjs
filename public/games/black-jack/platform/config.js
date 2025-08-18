@@ -1,6 +1,6 @@
 export default {
   isMobile: false,
-  renderer: { w: 800, h: 500, viewId: "game", mountId: "sContainer" },
+  renderer: { w: 800, h: 500, viewId: "game", mountId: "canvasContainer" },
   positions: {
     dealerY: 190,
     playerY: 360,
