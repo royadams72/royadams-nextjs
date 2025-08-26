@@ -1,6 +1,6 @@
 // JavaScript Document
 
-export const dcFunctions = function () {
+const dcFunctions = function () {
   //Bring in listeners
   addListeners();
 };

@@ -13,7 +13,7 @@
 
 <body>
   <div id="loader" class="loader full">
-    <h1>LOADINNGGGGGG!!!!!!!!</h1>
+    <h1>LOADING....</h1>
   </div>
 
   <div id="wrapper" class="">
@@ -254,7 +254,7 @@
         varType = typeof $urls[i];
         switch (varType) {
           case "string":
-            loadScript($urls[i], checkProgress); //Using the Enabler script loader to politely load the javascript
+            loadScript($urls[i], checkProgress);
             break;
           case "object":
             loadImage($urls[i], checkProgress); //Politely load images

@@ -25,45 +25,7 @@
 
     })
 
-    // function politeInit() {
-    //   // array of all the external js files we want to politely load
-    //   var arrExtJs = ["https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js", "https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/EasePack.min.js", "js/politeLoad.js", "js/common.js", "js/game.js", "js/expandFunctions.js", "js/300x250.js", "js/600x350_main.js"];//
 
-    //   var loadJsIndex = 0;
-
-    //   /**
-    //   * Function loads in an external JS file
-    //   */
-    //   function loadExtJavaScript() {
-    //     // Load in external Javascript file
-    //     var extJavaScript = document.createElement("script");
-    //     extJavaScript.setAttribute("type", "text/javascript");
-    //     extJavaScript.setAttribute("src", arrExtJs[loadJsIndex]);
-    //     extJavaScript.onload = function () {
-    //       jsLoadedHandler();
-    //     }
-    //     document.getElementsByTagName("head")[0].appendChild(extJavaScript);
-    //   }
-
-    //   loadExtJavaScript();
-
-    //   /**
-    //   * Fired when an External JS file has been loaded
-    //   */
-    //   function jsLoadedHandler() {
-    //     loadJsIndex++;
-
-    //     if (loadJsIndex < arrExtJs.length) {
-    //       loadExtJavaScript(); // load next JS file
-    //     } else {
-    //       loadAssets();
-    //       startAd();
-    //     }
-    //   }
-    // }
-
-
-    // "js/politeLoad.js", "js/common.js", "js/game.js", "js/expandFunctions.js", "js/300x250.js", "js/600x350_main.js"]
     const jsFiles = ["js/politeLoad.js", "js/common.js", "js/game.js", "js/expandFunctions.js", "js/300x250.js", "js/600x350_main.js"]
     async function loadJS() {
       for (let i = 0; i < jsFiles.length; i++) {
@@ -74,6 +36,7 @@
         });
       }
     }
+
     async function loadVendors() {
       await new Promise((res, rej) => {
         const s = document.createElement('script');
