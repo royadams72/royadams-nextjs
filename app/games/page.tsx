@@ -1,21 +1,33 @@
+import CardGrid from "@/components/CardGrid";
+import { IMAGES } from "@/lib/configs/routes.config";
+
 export default function GamesIndex() {
-  const games = [
-    { slug: "black-jack", name: "Black Jack" },
-    { slug: "pong", name: "Pong" },
-    { slug: "tetris", name: "Tetris" },
+  const cards = [
+    {
+      href: "/games/black-jack/index.html",
+      label: "Teaser Blackjack Game",
+      imgSrc: `${IMAGES.THUMBS_PATH_GAMES}/poker.jpg`,
+      isTargetBlank: true,
+    },
+    {
+      href: "/games/mustang/index.html",
+      label: "Ford Mustang Game",
+      imgSrc: `${IMAGES.THUMBS_PATH_GAMES}/games.jpg`,
+      isTargetBlank: true,
+    },
+    {
+      href: "/games/irish/index.html",
+      label: "Teaser Slot Game",
+      imgSrc: `${IMAGES.THUMBS_PATH_GAMES}/slot.jpg`,
+      isTargetBlank: true,
+    },
+    {
+      href: "/games/eco-sport/index.html",
+      label: "Ford EcoSport Game",
+      imgSrc: `${IMAGES.THUMBS_PATH_GAMES}/eco.jpg`,
+      isTargetBlank: true,
+    },
   ];
-  return (
-    <main className="p-6">
-      <h1 className="text-xl font-bold mb-4">Games</h1>
-      <ul className="space-y-2">
-        {games.map((g) => (
-          <li key={g.slug}>
-            <a href={`/games/${g.slug}`} className="underline">
-              {g.name}
-            </a>
-          </li>
-        ))}
-      </ul>
-    </main>
-  );
+
+  return <CardGrid cards={cards} />;
 }

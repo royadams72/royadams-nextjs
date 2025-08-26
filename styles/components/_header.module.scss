@@ -1,4 +1,7 @@
-.container {
+// header {
+@use "../base/common" as *;
+
+.mainContainer {
   position: relative;
   width: 100%;
   aspect-ratio: 940 / 370;
@@ -6,5 +9,37 @@
 
   :global(img) {
     object-fit: cover;
+  }
+}
+
+.nav {
+  display: grid;
+  grid-template-columns: 40rem 1fr;
+  gap: 1rem;
+  max-width: var(--app-width);
+  margin-inline: auto;
+  justify-content: center;
+
+  &Branding,
+  &Links {
+    a {
+      @include link;
+    }
+  }
+
+  &Branding {
+    font-size: 4rem;
+  }
+
+  &Links {
+    @include link;
+    font-size: 2.1rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+    gap: 0;
+    list-style-type: none;
+    margin-top: 1rem;
+    padding-left: 1rem;
+    justify-content: center;
   }
 }

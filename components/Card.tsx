@@ -1,15 +1,19 @@
+"use client";
 import Link from "next/link";
 import Image from "next/image";
+import { CardProps } from "@/types/CardProps";
+import styles from "@/styles/components/_card.module.scss";
 
-import styles from "@/styles/components/_common.module.scss";
-type CardProps = {
-  href: string;
-  imgSrc: string;
-  label: string;
-};
-const Card = ({ href, imgSrc, label }: CardProps) => {
+const Card = ({ href, imgSrc, label, isTargetBlank = false }: CardProps) => {
+  console.log("Card", isTargetBlank);
+
   return (
-    <Link className={`${styles.card} ${styles.link}`} href={href}>
+    <Link
+      className={`${styles.card} ${styles.link}`}
+      href={href}
+      target={isTargetBlank ? "_blank" : undefined}
+      rel={isTargetBlank ? "noopener noreferrer" : undefined}
+    >
       <div className={styles.thumb}>
         <Image src={imgSrc} alt={label} fill priority />
       </div>

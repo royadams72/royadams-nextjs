@@ -1,6 +1,6 @@
 @use "../abstracts/variables" as *;
+@use "../base/common" as *;
 
-/* styles/base/common.module.scss */
 .row {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(217px, 1fr));
@@ -33,12 +33,9 @@
 
 .label {
   margin-top: 0.5rem;
-  font-size: 3.4rem;
+  font-size: 2.4rem;
 }
 
 .link {
-  color: var(--secondary-colour);
-  &:hover {
-    color: var(--tertiary-colour);
-  }
+  @include link;
 }
