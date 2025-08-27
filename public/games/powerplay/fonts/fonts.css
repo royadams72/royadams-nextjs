@@ -1,0 +1,84 @@
+@charset "utf-8";
+body{color:#fff}
+@font-face {
+	font-family:'FordAntennaRegularItalic';
+	src: url('b293f486-517d-490f-9d18-75a4f46675a6-2.eot');
+	src: url('b293f486-517d-490f-9d18-75a4f46675a6-2?#iefix') format('embedded-opentype'),
+		url('b293f486-517d-490f-9d18-75a4f46675a6-3.woff') format('woff'),
+		url('b293f486-517d-490f-9d18-75a4f46675a6-1.ttf') format('truetype'),
+		url('FordAntennaCompWGL-RegItalic') format('opentype');
+	font-weight: 400;
+	font-style: normal;
+	font-stretch: extra-condensed;
+	unicode-range: U+0020-25CA;
+}
+
+@font-face {
+	font-family:'FordAntennaRegular';
+	src: url('d9e5c1ae-3c12-46d7-97a6-a7ff0861e239-2.eot');
+	src: url('d9e5c1ae-3c12-46d7-97a6-a7ff0861e239-2?#iefix') format('embedded-opentype'),
+		url('d9e5c1ae-3c12-46d7-97a6-a7ff0861e239-3.woff') format('woff'),
+		url('d9e5c1ae-3c12-46d7-97a6-a7ff0861e239-1.ttf') format('truetype'),
+		url('FordAntennaCompWGL-Reg') format('opentype');
+	font-weight: normal;
+	font-style: normal;
+	font-stretch: extra-condensed;
+	unicode-range: U+0020-25CA;
+}
+
+@font-face {
+	font-family:'FordAntennaLight';
+	src: url('899863cc-4a55-4858-b684-8f05191eda5a-2.eot');
+	src: url('899864cc-4a55-4858-b684-8f05191eda5a-2?#iefix') format('embedded-opentype'),
+		url('899864cc-4a55-4858-b684-8f05191eda5a-3.woff') format('woff'),
+		url('899864cc-4a55-4858-b684-8f05191eda5a-1.ttf') format('truetype'),
+		url('FordAntennaCompWGL-Light') format('opentype');
+	font-weight: 400;
+	font-style: normal;
+	font-stretch: extra-condensed;
+	unicode-range: U+0020-25CA;
+}
+
+@font-face {
+	font-family:'FordAntennaLightItalic';
+	src: url('04aa395a-734d-42a6-a810-bca61b083b76-2.eot');
+	src: url('04aa395a-734d-42a6-a810-bca61b083b76-2?#iefix') format('embedded-opentype'),
+		url('04aa395a-734d-42a6-a810-bca61b083b76-3.woff') format('woff'),
+		url('04aa395a-734d-42a6-a810-bca61b083b76-1.ttf') format('truetype'),
+		url('FordAntennaCompWGL-LightIta') format('opentype');
+	font-weight: 400;
+	font-style: normal;
+	font-stretch: extra-condensed;
+	unicode-range: U+0020-25CA;
+}
+
+
+@font-face {
+	font-family:'FordAntennaBlack';
+	src: url('377a2ba0-1052-4800-a16c-a3b0e350f31d-2.eot');
+	src: url('377a2ba0-1052-4800-a16c-a3b0e350f31d-2?#iefix') format('embedded-opentype'),
+		url('377a2ba0-1052-4800-a16c-a3b0e350f31d-3.woff') format('woff'),
+		url('377a2ba0-1052-4800-a16c-a3b0e350f31d-1.ttf') format('truetype'),
+		url('FordAntennaCompWGL-Black.otf') format('opentype');
+	font-weight: 400;
+	font-style: normal;
+	font-stretch: extra-condensed;
+	unicode-range: U+0020-25CA;
+}
+
+
+ 
+#findOutMore{font-family:"FordAntennaRegular"; font-size:12px; margin-left:23px; margin-top:1px;}
+#IntelligentDiv{font-family:"FordAntennaRegular"; font-size:13px; margin-left:10px; margin-top:-2px;}
+
+#playBtnDiv{font-family:"FordAntennaRegular"; font-size:12px; padding-left:12px; padding-top:5px}
+#btn{
+	width: 728px;
+	height: 90px;
+	top: 0px;
+	left: 0px;
+	cursor: pointer;
+	position: absolute;
+	opacity: 0;
+    z-index: 500;
+}

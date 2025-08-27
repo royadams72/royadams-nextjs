@@ -1,0 +1,6 @@
+.canvasContainer,
+.gameCanvas,
+.gameContainer {
+  /* max-width: 800px; */
+  width: 100%;
+}

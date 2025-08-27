@@ -1,0 +1,318 @@
+	@charset "UTF-8";
+/* CSS Document */
+
+#ex_clickThrough{
+	position: absolute;
+	width: inherit;
+	height: 80px;
+	bottom: 0px;
+	left: 0px;
+	cursor: pointer;
+	opacity: 0;
+	z-index: 2500;
+}
+#ex_cta{
+   position: absolute;
+    left: 20px;
+    bottom: 15px;
+    z-index: 2400;
+    width: 110px;
+    height: 24px;
+    background: url(../images/cta.png) no-repeat;
+	background-position: 0px 0px;
+}
+#ex_plinth{
+  position: absolute;
+    bottom:0;
+    width: inherit;
+    height: 68px;
+    z-index: 2300;
+}
+
+#ex_plinth img{
+    width: inherit;
+}
+
+/*div b {
+  
+    border:1px solid #ccc;
+    position:absolute;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    width:298px; height: 248px;
+    z-index: 900;
+}*/
+#ex_ad_container{
+    width: 298px;
+	height: 248px;
+    overflow: hidden!important;
+    display: block;
+    z-index: 2200;
+    position: absolute;
+    top: 0px;
+	left: 0px;
+    display: block;
+    border:1px solid #ccc;
+    overflow: hidden;
+    transition: all 0.5s ease;  -webkit-transition: all 0.5s ease; 
+    -webkit-animation-delay: 2s; /* Chrome, Safari, Opera */
+    animation-delay: 2s;
+}
+
+.expand{display: block!important; height: 348px!important; width: 598px!important}
+
+
+
+
+#close_btn{
+    width: 64px;
+    height: 22px;
+    position: absolute;
+    top:1px;
+    right: -5px;
+    background: url(../images/expanded/close_btn.png) no-repeat;
+	background-position: 0px 0px;
+    z-index: 8000;
+    display: block;
+}
+#ex_arrow_btn{
+    width: 18px;
+    height: 18px;
+    position: absolute;
+    top:2px;
+    left: 2px;
+    background: url(../images/arrow_btn.png) no-repeat;
+	background-position: 0px 3px;
+}
+
+#ex_arrow{
+position: absolute;
+left: 25px;
+top: 60px;
+width: auto;
+height: auto;
+z-index: 1200;
+}
+#ex_endMsg{
+    position: absolute;
+    left: 20px;
+    top: 20px; 
+    width:auto;
+    height: auto;
+    opacity: 0; 
+    z-index: 350;
+}
+#ex_endFrame{
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 2100;
+    width:auto;
+    height: auto;
+    opacity: 0;
+    display:none;
+}
+#ex_msg1{
+  position: absolute;
+  top:10px;
+  left: 10px;
+  z-index: 1000;
+  width: auto;
+  height: auto;
+  opacity: 0;
+}
+
+#ex_msg2{
+  position: absolute;
+  top:10px;
+  left: 10px;
+  z-index: 900;
+  width: auto;
+  height: auto;
+ opacity: 0;
+}
+#ex_bg_container{
+ position: absolute;
+ left: 0px;
+ top: 0;
+ z-index: 1900;
+    width: inherit;
+    height: inherit;
+}
+#door_opening{
+    position: absolute;
+    left: 245px;
+    top:43px;
+    width:130px;
+	height:130px;
+    overflow: hidden;
+    background: url(../images/expanded/doorSprite.png) no-repeat;
+	background-position: 0px 0px;
+    overflow: hidden;
+    z-index: 700;
+}
+#man_container{
+  position: absolute;
+    z-index: 800;
+    width: inherit;
+    height: inherit;
+}
+#man_nothing{
+  position: absolute;
+    left: 242px;
+    top:70px;
+    width:138px;
+	height:147px;
+    overflow: hidden;
+    /*opacity: 0*/;
+}
+#man_luxury_standing{
+   position: absolute;
+    left: 230px;
+    top:70px;
+    width:138px;
+	height:147px;
+    overflow: hidden;
+   opacity: 0;
+}
+
+#man_golf_standing{
+    position: absolute;
+    left: 230px;
+    top:70px;
+    width:138px;
+	height:147px;
+    overflow: hidden;
+    opacity: 0;
+}
+#man_fishing_standing{
+    position: absolute;
+    left: 210px;
+    top:70px;
+    width:138px;
+	height:147px;
+    overflow: hidden;
+    opacity: 0;
+}
+
+#man_luxury_opening{
+    position: absolute;
+    left: 188px;
+    top:70px;
+    width:150px;
+	height:150px;
+	background: url(../images/expanded/man/man_opening_luxury.png) no-repeat;
+	background-position: 0px 0px;
+    overflow: hidden;
+   opacity: 0;
+}
+#man_golf_opening{
+    position: absolute;
+    left: 170px;
+    top:60px;
+    width:150px;
+	height:160px;
+	background: url(../images/expanded/man/man_opening_golf.png) no-repeat;
+	background-position: 0px 0px;
+    overflow: hidden;
+    opacity: 0;
+}
+
+#man_fishing_opening{
+    position: absolute;
+    left: 200px;
+    top:60px;
+    width:150px;
+	height:160px;
+	background: url(../images/expanded/man/man_opening_fishing.png) no-repeat;
+	background-position: 0px 0px;
+    overflow: hidden;
+    opacity: 0;
+}
+
+
+
+#buttons{
+    position: absolute;
+    z-index: 2000;
+    width: 100%;
+    height: 100%;
+    display: block;
+    top:0;
+    left:0;
+}
+
+#bag1{
+position: absolute;
+ left: 334px;
+ top: 186px;
+ width: auto;
+ height: auto; 
+
+}
+
+#bag2{
+position: absolute;
+ left: 190px;
+ top: 218px;
+ width: auto;
+ height: auto;   
+}
+
+#bag3{
+position: absolute;
+ left: 19px;
+ top: 205px;
+ width: auto;
+ height: auto;   
+}
+
+#luxury{
+position: absolute;
+left: 320px;
+top: 265px;
+width: auto;
+height: auto;   
+}
+#golf{
+position: absolute;
+left: 200px;
+top: 265px;
+width: auto;
+height: auto;   
+}
+
+#fishing{
+position: absolute;
+ left: 30px;
+ top: 265px;
+ width: auto;
+ height: auto;   
+}
+
+#luxury img, #golf img, #fishing img{
+image-rendering: -moz-crisp-edges;         /* Firefox */
+image-rendering:   -o-crisp-edges;         /* Opera */
+image-rendering: -webkit-optimize-contrast;/* Webkit (non-standard naming) */
+image-rendering: crisp-edges;
+-ms-interpolation-mode: nearest-neighbor;  /* IE (non-standard property) */
+-webkit-transform: scale(0.5); /* Saf3.1+, Chrome */
+-moz-transform: scale(0.5); /* FF3.5+ */
+-ms-transform: scale(0.5); /* IE9 */
+-o-transform: scale(0.5); /* Opera 10.5+ */
+transform: scale(0.5);
+             /* IE6–IE9 */
+filter: progid:DXImageTransform.Microsoft.Matrix(M11=0.9999619230641713, M12=-0.008726535498373935, M21=0.008726535498373935, M22=0.9999619230641713,SizingMethod='auto expand');
+}
+
+#ex_bgContainer{
+ position: absolute;
+ left: 0;
+ top: 0;
+ width: auto;
+ height: auto;
+}
+
+

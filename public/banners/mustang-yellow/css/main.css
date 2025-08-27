@@ -1,0 +1,130 @@
+@charset "UTF-8";
+/* CSS Document */
+body,  body * {
+	vertical-align: baseline;
+	height: 100%;
+	border: 0 none;
+	outline: 0;
+	padding: 0;
+	margin: 0;
+}
+
+#clickThrough{
+	position: absolute;
+	height: 250px;
+	width: 300px;
+	z-index: 1000;
+	opacity: 0;
+	cursor: pointer; cursor: hand;
+}
+
+#container_dc{
+	position: relative;
+	width: 298px;
+	height: 248px;
+	overflow: hidden!important;
+	border:1px solid #ccc;
+}
+
+#findOutCTA{
+	position: absolute;
+	top: 215px;
+	left: 12px;
+	width: 133px;
+	height: 20px;
+	background: url(../images/cta.svg) no-repeat;
+    background-size: 276px 18px;
+	background-position: 0px 0px;
+	z-index: 600;
+}
+
+#arrow_btn{
+   width: 18px;
+    height: 18px;
+    position: absolute;
+    top:0px;
+    left: 0px;
+    background: url(../images/arrow_btn.png) no-repeat;
+	background-position: 0px 3px;
+}
+
+#plinth{
+	position: absolute;
+	top: 200px;
+	left: 215px;
+	width: 71px;
+	height: 40px;
+	z-index: 500;
+	background: url(../images/plinth.png) no-repeat;
+}
+
+#carModelContainer{
+	position: absolute;
+	z-index: 800;
+
+}
+
+#carModel_a{
+	position: absolute; 
+	top:.4px; 
+	left: 0px;
+	width: inherit;
+	height: inherit;
+	background: url(../images/mustang_a.svg) no-repeat;
+}
+
+#carModel{
+	position: absolute; 
+	top:0px; 
+	left: 0px;
+	width: inherit;
+	height: inherit;
+	background: url(../images/mustang.svg) no-repeat;
+}
+
+#car{
+	position: absolute; 
+	top:80px; 
+	left: 58px;
+	width: 178px;
+	height: 118px;
+	background-image: url(../images/car.png);
+	z-index: 800;
+}
+
+#scriptSprite{
+    position: absolute;
+    left: 5px;
+    top:8px;
+    width:219px;
+	height:87px;
+	background: url(../images/scriptSprite.png) no-repeat;
+    background-size: 4161px 87px;
+	background-position: 0px 0px;
+	opacity: 1;
+	/*overflow: hidden!important;*/
+	z-index: 700;
+}
+
+#bg{
+	position: absolute; 
+	top:0; 
+	left: 0;
+	width: 300px;
+	height: 250px;
+	background-image: url(../images/bg.jpg);
+	opacity: 0;
+	/*margin-left: -200px;
+	-ms-transform: scale(0.9);
+    -webkit-transform: scale(0.9); 
+    transform: scale(0.9);*/
+}
+
+#canvas{
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+
+

@@ -1,0 +1,9 @@
+@mixin link {
+  color: var(--secondary-colour);
+  text-decoration: none;
+  text-align: center;
+
+  &:hover {
+    color: var(--tertiary-colour);
+  }
+}

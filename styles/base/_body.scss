@@ -1,0 +1,26 @@
+@use "../abstracts/variables";
+
+html {
+  font-size: 62.5%;
+  overflow: auto;
+}
+
+body {
+  background-color: var(--primary-colour);
+  font-size: 1.6rem;
+  font-family: var(--app-body-font);
+  color: var(--secondary-colour);
+  height: 100%;
+  margin: 0.5rem;
+}
+
+html,
+body {
+  min-height: 100vh;
+}
+
+main {
+  margin: 0 auto;
+  max-width: var(--app-width);
+  min-height: 70vh;
+}

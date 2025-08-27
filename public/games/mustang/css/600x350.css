@@ -1,0 +1,100 @@
+@charset "UTF-8";
+/* CSS Document */
+#close_btn {
+  width: 64px;
+  height: 22px;
+  position: absolute;
+  top: 1px;
+  right: -5px;
+  background: url(../images/_expanded/close_btn.png) no-repeat;
+  background-position: 0px 0px;
+  z-index: 2000;
+  display: block;
+  opacity: 0;
+  cursor: pointer;
+  cursor: hand;
+}
+
+#ex_clickThrough {
+  position: absolute;
+  width: inherit;
+  height: 80px;
+  bottom: 0px;
+  left: 0px;
+  cursor: pointer;
+  opacity: 0;
+  z-index: 2500;
+}
+
+#ex_cta {
+  position: absolute;
+  left: 20px;
+  bottom: 15px;
+  z-index: 2400;
+  width: 110px;
+  height: 24px;
+  background: url(../images/_expanded/cta.png) no-repeat;
+  background-position: 0px 0px;
+}
+
+#ex_ad_container {
+  width: 298px;
+  height: 248px;
+  overflow: hidden !important;
+  display: block;
+  z-index: 500;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  display: block;
+  border: 1px solid #ccc;
+  overflow: hidden;
+  transition: all 0.5s ease;
+  -webkit-transition: all 0.5s ease;
+  -webkit-animation-delay: 2s; /* Chrome, Safari, Opera */
+  animation-delay: 2s;
+}
+
+.expand {
+  display: block !important;
+  height: 348px !important;
+  width: 598px !important;
+}
+
+#ex_ad_shield {
+  position: absolute;
+  left: 0px;
+  top: 0;
+  z-index: 1300;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+}
+
+#ex_cta {
+  position: absolute;
+  bottom: 22px;
+  left: 15px;
+  width: 190px;
+  height: 17px;
+  background: url(../images/_expanded/cta_blue2.png) no-repeat;
+  background-position: 1px 0px;
+  /*background-size: 190px 17px;*/
+  z-index: 1200;
+  opacity: 1;
+}
+#ex_ctaArrowContainer {
+  width: 12px;
+  height: 7px;
+  position: absolute;
+  top: 5px;
+  left: 3px;
+  overflow: hidden;
+}
+#ex_ctaArrow {
+  position: absolute;
+  left: 4px;
+  width: 6px;
+  height: 7px;
+  background: url(../images/ctaArrow_blue.png) no-repeat;
+}

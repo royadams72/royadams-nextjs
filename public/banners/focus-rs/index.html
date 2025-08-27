@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <link type="text/css" rel="stylesheet" href="css/main.css" />
+  <script language="javascript">
+    document.addEventListener("DOMContentLoaded", function () {
+      politeInit()
+    })
+
+    function politeInit() {
+      // array of all the external js files we want to politely load
+      var arrExtJs = ["https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/TweenLite.min.js", "https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/easing/EasePack.min.js", "https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/plugins/CSSPlugin.min.js", "js/cta.js", "js/shard.js", "js/Sprite3D.js", "js/politeLoad.js", "js/300x250.js"];
+      var loadJsIndex = 0;
+
+      /**
+       * Function loads in an external JS file
+       */
+      function loadExtJavaScript() {
+        // Load in external Javascript file
+        var extJavaScript = document.createElement("script");
+        extJavaScript.setAttribute("type", "text/javascript");
+        extJavaScript.setAttribute("src", arrExtJs[loadJsIndex]);
+        extJavaScript.onload = function () {
+          jsLoadedHandler();
+        }
+        document.getElementsByTagName("head")[0].appendChild(extJavaScript);
+      }
+
+      loadExtJavaScript();
+
+      /**
+       * Fired when an External JS file has been loaded
+       */
+      function jsLoadedHandler() {
+        console.log("JS LOADED (" + arrExtJs[loadJsIndex] + ")");
+        loadJsIndex++;
+        if (loadJsIndex < arrExtJs.length) {
+          loadExtJavaScript(); // load next JS file
+        } else {
+          loadAssets();
+          startAd();
+        }
+      }
+    }
+  </script>
+</head>
+
+<body>
+  <div id="clickThrough"></div>
+  <div id="container_dc">
+
+  </div>
+
+</body>
+
+</html>

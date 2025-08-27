@@ -1,0 +1,41 @@
+@use "../abstracts/variables" as *;
+@use "../base/common" as *;
+
+.row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(217px, 1fr));
+  gap: 1rem;
+  max-width: var(--app-width);
+  margin-inline: auto;
+  justify-content: center;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: min(290px, 100%);
+  margin-inline: auto;
+  text-decoration: none;
+}
+
+.thumb {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 290 / 217;
+  border-radius: 8px;
+  overflow: hidden;
+
+  :global(img) {
+    object-fit: cover;
+  }
+}
+
+.label {
+  margin-top: 0.5rem;
+  font-size: 2.4rem;
+}
+
+.link {
+  @include link;
+}

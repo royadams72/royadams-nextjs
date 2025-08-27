@@ -1,0 +1,424 @@
+html,
+body,
+div,
+span,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+address,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+samp,
+small,
+strong,
+sub,
+sup,
+var,
+b,
+i,
+hr,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+figure,
+figcaption,
+hgroup,
+menu,
+footer,
+header,
+nav,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+article,
+aside,
+canvas,
+figure,
+figure img,
+figcaption,
+hgroup,
+footer,
+header,
+nav,
+section,
+audio,
+video {
+  display: block;
+}
+a img {
+  border: 0;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.loader {
+  background-color: #ccc;
+  z-index: 9999;
+}
+.pos {
+  position: absolute;
+  background-repeat: no-repeat;
+}
+#three60_container {
+  /* background-image: url('../images/car_360.jpg');*/
+  overflow: hidden;
+}
+#wrapper {
+  left: 0;
+  top: 0;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  overflow: hidden !important;
+}
+.infoPanelFooter {
+  background-image: url("../images/infoPanelFooter.jpg");
+}
+
+.footer1 {
+  background-image: url("../images/footer1.png");
+}
+
+.footer2 {
+  background-image: url("../images/footer2.png");
+}
+
+.footer3 {
+  background-image: url("../images/footer3.png");
+}
+#infoPanelContainer,
+.infoPanel,
+#f_infoPanelContainer {
+  position: absolute;
+  height: 161px;
+  width: 796px;
+  top: 530px;
+  left: 162px;
+  background-size: 796px 161px;
+}
+.infoPanel {
+  top: 0px;
+  left: 0px;
+}
+
+#background {
+  left: 0;
+  top: 0;
+  position: absolute;
+  text-align: center;
+  height: 100%;
+  width: 100%;
+  background: white;
+  cursor: pointer;
+  z-index: 0 !important;
+  overflow: hidden !important;
+}
+
+#ad {
+  position: relative;
+  width: 1270px;
+  height: 750px;
+  cursor: pointer;
+  z-index: 2;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  overflow: hidden !important;
+}
+
+.hidden {
+  opacity: 0;
+}
+
+.centered {
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.shadowed {
+  filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=12, OffY=12,Color='#444')";
+  filter: url(#drop-shadow);
+  -webkit-filter: drop-shadow(0px 0px 2px rgba(0, 0, 0, 0.75));
+  filter: drop-shadow(0px 0px 2px rgba(0, 0, 0, 0.75));
+}
+
+.threeD {
+  -webkit-transform: translateZ(1);
+  transform: translateZ(1);
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+
+.full {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 1270px;
+  height: 750px;
+  background-repeat: no-repeat;
+  background-size: 1270px 750px;
+  overflow: hidden;
+}
+
+#unitBackground {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 1270px;
+  height: 750px;
+  background-repeat: no-repeat;
+  background-size: 1270px 750px;
+  overflow: hidden;
+}
+#footer2_arrow {
+  background-image: url("../images/footer2_arrow.png");
+}
+#footer3_arrow {
+  background-image: url("../images/footer3_arrow.png");
+}
+#closeButton {
+  position: absolute;
+  left: 1219px;
+  top: 16px;
+  width: 31px;
+  height: 31px;
+  background-repeat: no-repeat;
+  background-size: 31px 31px;
+  overflow: hidden;
+}
+
+.closeBtnImg {
+  background-image: url("../images/vid_panel/close_btn.png");
+}
+
+.bootImg {
+  background-image: url("../images/vid_panel/boot.png");
+}
+.windscreenImg {
+  background-image: url("../images/vid_panel/windscreen.png");
+}
+
+.three60PolaroidImg {
+  background-image: url("../images/vid_panel/360.png");
+}
+
+.featuresImg {
+  background-image: url("../images/vid_panel/features_btn.png");
+}
+.cta {
+  position: absolute;
+  cursor: pointer;
+}
+.ripple {
+  position: absolute;
+  width: 336px;
+  height: 336px;
+  top: 0px;
+  left: 0px;
+
+  background-repeat: no-repeat;
+  overflow: hidden;
+  background-image: url(../images/ripple.png);
+  background-size: 336px 336px;
+  opacity: 0;
+}
+
+.hitArea {
+  position: absolute;
+
+  /* top:70px;
+    left:70px;
+    z-index: 10000;*/
+  display: block;
+}
+.hotspot {
+  position: absolute;
+  width: 662px;
+  height: 336px;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  -ms-transform: scale(0.5, 0.5); /* IE 9 */
+  -webkit-transform: scale(0.5, 0.5); /* Safari */
+  transform: scale(0.5, 0.5);
+}
+/*#relax{
+  left:300px;
+  top:70px;
+  position: absolute;
+
+}*/
+
+.hotspot_off {
+  position: absolute;
+  background-image: url(../images/hotspot_off.png);
+}
+
+.hotspot_on {
+  position: absolute;
+  background-image: url(../images/hotspot_on.png);
+}
+
+.label {
+  position: absolute;
+}
+
+#hotspotInstructions {
+  position: absolute;
+  left: 945px;
+  top: 469px;
+  width: 205px;
+  height: 101px;
+  background-repeat: no-repeat;
+  background-size: 205px 101px;
+  overflow: hidden;
+}
+
+.wheel {
+  position: absolute;
+  background-repeat: no-repeat;
+}
+
+#featureImage {
+  position: absolute;
+  width: 802px;
+  height: 432px;
+  overflow: hidden;
+  display: block;
+  background-size: 802px 432px;
+  left: 160px;
+  top: 87px;
+}
+
+#videoPanel_bg,
+#featuresPanel_bg,
+#videoPanel_bg2,
+.panelBG {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background: #e8e8e8;
+  filter: alpha(opacity=70);
+  /* IE */
+  -moz-opacity: 0.7;
+  /* Mozilla */
+  opacity: 0.7;
+  /* CSS3 */
+}
+
+#videoPanel {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+#header {
+  position: absolute;
+  left: 73px;
+  top: 51px;
+  width: 516px;
+  height: 119px;
+  background-repeat: no-repeat;
+  background-size: 516px 119px;
+  overflow: hidden;
+}
+/* #pool {
+  background-image: url("../images/pool.jpg");
+}
+
+#polaroid1 {
+  background-image: url("../images/polaroid1.png");
+}
+
+#polaroid2 {
+  background-image: url("../images/polaroid2.png");
+}
+
+#polaroid3 {
+  background-image: url("../images/polaroid3.png");
+}
+
+#polaroid4 {
+  background-image: url("../images/polaroid4.png");
+}
+
+#cantWaitTxt {
+  background-image: url("../images/cantWaitTxt.png");
+}
+
+#unitBackground {
+  background-image: url("../images/background.jpg");
+}
+
+#logos {
+  background-image: url("../images/logos.png");
+}
+
+#closeBtn_360 {
+  background-image: url("../images/closeBtn_360.png");
+}
+
+#carBG {
+  background-image: url("../images/three60_carBG.png");
+}
+
+#close_btn_main {
+  background-image: url("../images/close_btn_main.png");
+} */

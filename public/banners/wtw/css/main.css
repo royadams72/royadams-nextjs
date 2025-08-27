@@ -1,0 +1,167 @@
+@charset "UTF-8";
+/* CSS Document */
+body,  body * {
+	vertical-align: baseline;
+	height: 100%;
+	border: 0 none;
+	outline: 0;
+	padding: 0;
+	margin: 0;
+}
+#container_dc{
+	position: relative;
+	width: 298px;
+	height: 248px;
+	overflow: hidden!important;
+	border:1px solid #ccc;
+}
+#ad_container{
+	position: relative;
+	width: 542px;
+	height: 500px;
+	padding:0;
+    top:-40px;
+    left: 0;
+}
+#plinth{
+	position: absolute;
+	top: 181px;
+	left: 0;
+	width: 300px;
+	height: 69px;
+	z-index: 700;
+	background: url(../images/plinth.png) no-repeat;
+}
+#findOutCTA{
+	position: absolute;
+	top: 32px;
+	left: 13px;
+	width: 115px;
+	height: 20px;
+	background: url(../images/ctaSprite.png) no-repeat;
+    background-size: 346px 24px;
+	background-position: 0px 0px;
+	opacity: 0;
+	/*z-index: 700;*/
+	
+}
+/*arrow_btn is nested within findOutCTA and is the arrow animation sprite*/
+#arrow_btn{
+   width: 18px;
+    height: 18px;
+    position: absolute;
+    top:2px;
+    left: 2px;
+    background: url(../images/arrow_btn.png) no-repeat;
+	background-position: 0px 3px;
+}
+#road1{
+    padding:0;
+    position: absolute;
+    top:0;
+    left: 0;
+	width: inherit;
+	height: inherit;
+ 	background-image: url(../images/bg1.jpg);
+	background-repeat:repeat-x;
+	z-index: 100;
+}
+#road2{
+    padding:0;
+    position: absolute;
+    top:0;
+    left: 0;
+	width: inherit;
+	height: inherit;
+ 	background-image: url(../images/leavesBG.jpg);
+	background-repeat:repeat-x;
+	z-index: 200;
+	opacity: 0;
+}
+#road3{
+    padding:0;
+    position: absolute;
+    top:0;
+    left: 0;
+	width: inherit;
+	height: inherit;
+ 	background-image: url(../images/iceBG.jpg);
+	background-repeat:repeat-x;
+	z-index: 300;
+	opacity: 0;
+}
+#dogSprite{
+    position: absolute;
+    left: 100px;
+    top:80px;
+    width:93px;
+	height:50px;
+	background: url(../images/dogSprite.png) no-repeat;
+    background-size: 835px 49px;
+	background-position: 0px 0px;
+	/*overflow: hidden!important;*/
+	z-index: 500;
+}
+#car{
+	position: absolute;
+    left: 50px;
+    top: 210px;
+    width: 180px;
+	height: 94px;
+	z-index: 500;
+	background: url(../images/car.png) no-repeat;
+}
+#messages{
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+}
+#wtw{
+	position: absolute;
+	left: 50px;
+    top: 20px;
+    width: 198px;
+	height: 16px;
+	z-index: 600;
+	opacity: 0;
+	background: url(../images/wtwTxt.png) no-repeat;
+}
+#allFours{
+	position: absolute;
+	left: 32px;
+    top: 20px;
+    width: 240px;
+	height: 19px;
+	z-index: 600;
+	opacity: 0;
+	background: url(../images/allFoursTxt.png) no-repeat;
+}
+#endFrame{
+	position: absolute;
+	left: 0px;
+    top: 0px;
+    width: 300px;
+	height: 204px;
+	z-index: 600;
+	opacity: 0;
+	background: url(../images/endFrame.jpg) no-repeat;
+}
+#arrow{
+position: absolute;
+left: -10px;
+top: 45px;
+width: 8px;
+height: 12px;
+z-index: 900;
+background: url(../images/arrow.png) no-repeat;
+}
+#clickThrough{
+	position: absolute;
+	height: 250px;
+	width: 300px;
+	z-index: 1000;
+	opacity: 0;
+	cursor: pointer; cursor: hand;
+}

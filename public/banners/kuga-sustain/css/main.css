@@ -1,0 +1,174 @@
+	@charset "UTF-8";
+/* CSS Document */
+
+
+body,  body * {
+	vertical-align: baseline;
+	height: 100%;
+	border: 0 none;
+	outline: 0;
+	padding: 0;
+	margin: 0;
+}
+
+
+#container_dc {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	margin: auto;
+	width: inherit;
+	height: inherit;
+}
+
+#expandAd {
+	position: absolute;
+	width: inherit;
+	height: inherit;
+	top: 0px;
+	left: 0px;
+	cursor: pointer;
+	opacity: 0;
+	z-index: 10000;
+}
+div b {
+    /*This creates a border around ad
+    Set to -2px of ad*/
+    border:1px solid #ccc;
+    position:absolute;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    width:298px; height: 248px;
+    z-index: 900;
+}
+#ad_container{
+    width: 300px;
+    height: 250px;
+    overflow: hidden!important;
+    display: block;
+    z-index: 8000;
+    position: relative;
+    display: block;
+}
+
+#arrow_btn{
+   width: 18px;
+    height: 18px;
+    position: absolute;
+    top:2px;
+    left: 2px;
+    background: url(../images/arrow_btn.png) no-repeat;
+	background-position: 0px 3px;
+}
+#cta{
+   position: absolute;
+    left: 20px;
+    top: 212px;
+    z-index: 700;
+    width: 110px;
+    height: 24px;
+    background: url(../images/cta.png) no-repeat;
+	background-position: 0px 0px;
+}
+#arrow{
+position: absolute;
+left: -50x;
+top: 47px;
+width: auto;
+height: auto;
+ opacity: 0; 
+z-index: 400;
+}
+#endMsg{
+    position: absolute;
+    left: 20px;
+    top: 15px; 
+    width:auto;
+    height: auto;
+    opacity: 0; 
+    z-index: 350;
+}
+#endFrame{
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 300;
+    width:auto;
+    height: auto;
+    opacity: 0; 
+   
+}
+#getTheTxt{
+  position: absolute;
+  top:15px;
+  left: 240px;
+  z-index: 300;
+  width: auto;
+  height: auto;
+  opacity: 0; 
+  transform:scale(1.2);
+}
+#theCar{
+  position: absolute;
+  top:15px;
+  left: 85px;
+  z-index: 300;
+  width: auto;
+  height: auto;
+  opacity: 0;
+}
+
+#relax{
+  position: absolute;
+  top:15px;
+  left: 115px;
+  z-index: 300;
+  width: auto;
+  height: auto;
+ opacity: 0;
+}
+#bg_container{
+ position: absolute;
+ left: 0px;
+ top: 0;
+ z-index: 100;
+}
+
+#man{
+  position: relative;
+    left: 226px;
+    top:44px;
+    width:138px;
+	height:147px;
+	background: url(../images/Man_and_Boot4.png) no-repeat;
+	background-position: 0px -2px;
+    z-index: 200;
+    overflow: hidden;
+}
+#bgImage{
+ position: absolute;
+ left: 0;
+ top: 0;
+ width: auto;
+ height: auto;
+}
+#plynth{
+  position: absolute;
+    top:184px;
+    width: inherit;
+    height: 68px;
+    z-index: 500;
+}
+#loading{
+	position:absolute;
+	left:40%;
+	top:40%;
+	width:20%;
+	height:20%;
+	display:none;
+}
+
+
+
