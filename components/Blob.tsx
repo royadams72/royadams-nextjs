@@ -8,6 +8,7 @@ import makeNonRepeatingPicker from "@/lib/utils/makeNonRepeatingPicker";
 gsap.registerPlugin(useGSAP);
 
 type BlobProps = {
+  pageHeight: number;
   radii: string[];
   sizeRange?: { min: number; max: number };
   color?: string;
@@ -22,6 +23,7 @@ type BlobProps = {
 };
 
 export default function Blob({
+  pageHeight,
   radii,
   sizeRange = { min: 100, max: 400 },
   color = "#4ca4e8",
