@@ -1,0 +1,54 @@
+/* Your blob keeps its own sizing, borderRadius, background, etc. */
+
+.blobWrap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* Lighting control (percentages inside the blob box) */
+  --spec-x: 40%;
+  --spec-y: 30%;
+  filter: drop-shadow(14px 18px 24px rgba(0, 0, 0, 0.35));
+  visibility: hidden;
+} /* important: out of flow */
+
+.blob {
+  width: 100%;
+  height: 100%;
+}
+
+/* Specular highlight toward the light */
+.blobWrap::before {
+  content: "";
+  position: absolute;
+  inset: 8%;
+  border-radius: inherit; /* follows your animated border-radius */
+  pointer-events: none;
+  mix-blend-mode: screen;
+  opacity: 0.4;
+  background: radial-gradient(
+    circle at var(--spec-x) var(--spec-y),
+    rgba(255, 255, 255, 0.9) 0%,
+    rgba(255, 255, 255, 0.35) 18%,
+    rgba(255, 255, 255, 0.1) 30%,
+    rgba(255, 255, 255, 0) 20%
+  );
+  filter: blur(6px);
+  transition: background-position 0.2s;
+}
+
+/* Soft occlusion on the far side (optional) */
+.blobWrap::after {
+  content: "";
+  position: absolute;
+  inset: 8%;
+  border-radius: inherit;
+  pointer-events: none;
+  mix-blend-mode: multiply;
+  background: radial-gradient(
+    circle at 120% 120%,
+    rgba(0, 0, 0, 0.22) 10%,
+    rgba(0, 0, 0, 0.191) 28%,
+    rgba(0, 0, 0, 0) 60%
+  );
+  filter: blur(10px);
+}

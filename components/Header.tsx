@@ -10,7 +10,7 @@ const Header = () => {
   const title = path.replace("/", "").toUpperCase();
 
   return path === "/" ? (
-    <div className={styles.mainContainer}>
+    <div data-header className={styles.mainContainer}>
       <Link href={"/"}>
         <Image
           className="Image-fluid"
@@ -22,7 +22,7 @@ const Header = () => {
       </Link>
     </div>
   ) : (
-    <div className={styles.nav}>
+    <div data-header className={styles.nav}>
       <div className={styles.navBranding}>
         <Link className="nav-brand-main-link" href="/">
           Roy Adams Portfolio
