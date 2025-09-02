@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import Image from "next/image";
-import { CardProps } from "@/types/CardProps";
+import { CardProps } from "@/types/interfaces/CardProps";
 import styles from "@/styles/components/_card.module.scss";
 
 const Card = ({ href, imgSrc, label, isTargetBlank = false }: CardProps) => {

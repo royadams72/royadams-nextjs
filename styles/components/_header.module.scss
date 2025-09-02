@@ -19,6 +19,11 @@
   max-width: var(--app-width);
   margin-inline: auto;
   justify-content: center;
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
 
   &Branding,
   &Links {

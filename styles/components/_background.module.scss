@@ -1,0 +1,9 @@
+.backgroundAnimation {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100dvh;
+  pointer-events: none; /* so it never eats clicks */
+  z-index: 0;
+  filter: blur(2px);
+}

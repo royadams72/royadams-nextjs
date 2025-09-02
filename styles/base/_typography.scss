@@ -1,0 +1,76 @@
+@use "../abstracts/mixins" as *;
+@use "../fonts/fonts" as *;
+
+.title {
+  @include typography(
+    "xxl",
+    var(--primary-font-colour),
+    ("Archivo-BlackItalic", sans-serif),
+    normal
+  );
+
+  @include breakpoint("md") {
+    @include font-size("xxxl");
+  }
+}
+
+h1 {
+  @include typography(
+    "xl",
+    var(--primary-font-colour),
+    ("Archivo-Bold", sans-serif),
+    normal
+  );
+
+  @include breakpoint("md") {
+    @include font-size("xxl");
+  }
+}
+
+h2,
+h3 {
+  @include typography(
+    "lg",
+    var(--primary-font-colour),
+    ("BebasNeue", sans-serif),
+    bold
+  );
+
+  @include breakpoint("md") {
+    @include font-size("xl");
+  }
+}
+h4 {
+  @include typography(
+    "xl",
+    var(--primary-font-colour),
+    ("BebasNeue", sans-serif),
+    bold
+  );
+}
+
+p {
+  margin: 0 0 1.2rem;
+
+  @include typography(
+    "md",
+    var(--app-body-font-color),
+    ("Archivo-Medium", sans-serif),
+    normal
+  );
+}
+
+li {
+  margin-bottom: 0.5rem;
+
+  @include typography(
+    "md",
+    var(--app-body-font-color),
+    ("Archivo-Medium", sans-serif),
+    normal
+  );
+}
+
+a {
+  color: inherit;
+}

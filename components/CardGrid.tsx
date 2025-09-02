@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import styles from "@/styles/components/_card.module.scss";
-import { CardProps } from "@/types/CardProps";
+import { CardProps } from "@/types/interfaces/CardProps";
 import Card from "./Card";
 
 const CardGrid = ({ cards }: { cards: CardProps[] }) => {

@@ -1,7 +1,6 @@
 "use client";
 import Link from "next/link";
 import Image from "next/image";
-import { IMAGES } from "@/lib/configs/routes.config";
 import styles from "@/styles/components/_header.module.scss";
 import { usePathname } from "next/navigation";
 Image;
@@ -9,19 +8,7 @@ const Header = () => {
   const path = usePathname();
   const title = path.replace("/", "").toUpperCase();
 
-  return path === "/" ? (
-    <div data-header className={styles.mainContainer}>
-      <Link href={"/"}>
-        <Image
-          className="Image-fluid"
-          src={`${IMAGES.PORTFOLIO_ASSETS}/shared/roy-adams-logo.jpg`}
-          alt="Roy Adams"
-          fill
-          priority
-        />
-      </Link>
-    </div>
-  ) : (
+  return (
     <div data-header className={styles.nav}>
       <div className={styles.navBranding}>
         <Link className="nav-brand-main-link" href="/">

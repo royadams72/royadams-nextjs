@@ -1,0 +1,41 @@
+{
+  "heroPage": [
+    { "h1": "Who I Am:" },
+    {
+      "p": "I blend creativity with code. With a background in design and a career spanning brands like Ford, Direct Line, and Gala Coral,"
+    },
+    {
+      "p": "I build performant, accessible, and engaging interfaces."
+    },
+    {
+      "p": "Whether it's a custom CMS-powered site, an interactive ad unit, or an AI-driven fitness platform,"
+    },
+    {
+      "p": "I focus on detail, experience, and results."
+    },
+    { "h2": "Tech Stack Highlights:" },
+    {
+      "ul": [
+        { "li": "React 19, Next.js 15 (App Router, RSC)" },
+        { "li": "Redux Toolkit, TanStack Query" },
+        { "li": "GSAP, Pixi.js, WebGL" },
+        { "li": "TypeScript, SCSS Modules, Responsive Design" },
+        { "li": "TypeScript, SCSS Modules, Responsive Design" }
+      ]
+    },
+    { "h2": "Values:" },
+    {
+      "p": "Precision. Performance. Playfulness. I bring a product mindset to every project — always thinking about UX, animation polish, and how it all works together under the hood."
+    }
+  ],
+  "aboutPage": [
+    { "h2": "Welcome to your all-in-one fitness companion" },
+    {
+      "p": "built to get you stronger, healthier, and more dialed in with zero guesswork"
+    },
+    {
+      "p": "Whether you're just starting out or leveling up, we'll help you train smarter, eat better, and stay consistent."
+    },
+    { "p": "Ready to make moves? it's time to get your fit together." }
+  ]
+}

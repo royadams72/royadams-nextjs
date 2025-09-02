@@ -1,13 +1,15 @@
+import gsap from "gsap";
+import { ScrollTrigger, SplitText } from "gsap/all";
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import "../styles/base/_body.scss";
+import "./_globals.scss";
 import Header from "@/components/Header";
+import Background from "@/components/Background";
 
 export const metadata: Metadata = {
   title: "Roy Adams Portfolio",
   description: "Created by Roy Adams",
 };
-
+gsap.registerPlugin(ScrollTrigger, SplitText);
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -19,6 +21,7 @@ export default function RootLayout({
         <main>
           <Header />
           {children}
+          <Background />
         </main>
       </body>
     </html>
