@@ -1,5 +1,3 @@
-import gsap from "gsap";
-import { ScrollTrigger, SplitText } from "gsap/all";
 import type { Metadata } from "next";
 import "./_globals.scss";
 import Header from "@/components/Header";
@@ -9,7 +7,7 @@ export const metadata: Metadata = {
   title: "Roy Adams Portfolio",
   description: "Created by Roy Adams",
 };
-gsap.registerPlugin(ScrollTrigger, SplitText);
+
 export default function RootLayout({
   children,
 }: Readonly<{

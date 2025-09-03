@@ -1,27 +1,45 @@
-import React, {
-  DOMAttributes,
-  JSXElementConstructor,
-  ReactElement,
-} from "react";
-import { KeyValueMap } from "@/types/interfaces/KeyValueMap";
+import React, { DOMAttributes, JSX } from "react";
+
+type KeyValueMap =
+  | Record<string, any>
+  | { props?: Record<string, any>; children?: KeyValueMap[] | string };
 
 const mapElements = (
-  copyArray: KeyValueMap[],
-  parentKey: string = ""
-): ReactElement<
-  DOMAttributes<Element>,
-  string | JSXElementConstructor<any>
->[] => {
-  return copyArray.flatMap((element, index) => {
-    const elementKey = Object.keys(element)[0];
-    const elementValue = element[elementKey];
-    const uniqueKey = `${parentKey}-${index}`;
-    if (Array.isArray(elementValue)) {
-      return mapElements(elementValue, uniqueKey);
+  copyArray: Record<string, any>[],
+  parentKey = "root"
+): React.ReactElement[] => {
+  return copyArray.map((element, index) => {
+    const tag = Object.keys(element)[0] as keyof JSX.IntrinsicElements;
+    const value = (element as any)[tag];
+    const key = `${parentKey}.${tag}.${index}`;
+
+    // Case 1: tag with array children → create parent and render children inside
+    if (Array.isArray(value)) {
+      const children = mapElements(value, key);
+      return React.createElement(tag, { key }, children);
     }
-    return React.createElement(elementKey, { key: uniqueKey }, elementValue);
+
+    // Optional Case 2: { tag: { props: {...}, children: [...] } }
+    if (
+      value &&
+      typeof value === "object" &&
+      ("children" in value || "props" in value)
+    ) {
+      const { props = {}, children = [] } = value as {
+        props?: Record<string, any>;
+        children?: any;
+      };
+      const renderedChildren = Array.isArray(children)
+        ? mapElements(children, key)
+        : children;
+      return React.createElement(tag, { key, ...props }, renderedChildren);
+    }
+
+    // Case 3: primitive/text child
+    return React.createElement(tag, { key }, value);
   });
 };
+
 const CopyComponent = ({ copy }: { copy: any[] }) => {
   return <div>{mapElements(copy)}</div>;
 };

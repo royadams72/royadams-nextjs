@@ -3,17 +3,6 @@
 @use "../base/common" as *;
 @use "../abstracts/mixins" as *;
 
-.mainContainer {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 940 / 370;
-  overflow: hidden;
-
-  :global(img) {
-    object-fit: cover;
-  }
-}
-
 .nav {
   @include breakpoint("md") {
     grid-template-columns: 40% 1fr;
@@ -77,7 +66,9 @@
       @include breakpoint("md") {
         @include font-size("title-lrg");
       }
-      text-decoration: none;
+      & {
+        text-decoration: none;
+      }
     }
   }
 
@@ -108,14 +99,14 @@
     text-align: left;
     background: radial-gradient(
       circle,
-      rgb(255, 255, 255) 40%,
+      rgb(255, 255, 255) 30%,
       rgb(255, 137, 11) 30%,
-      rgba(254, 233, 0, 0.883) 40%,
-      rgb(255, 255, 255) 20%,
-      rgba(255, 137, 11, 0.883) 40%
+      rgba(254, 233, 0, 0.883) 50%,
+
+      rgba(255, 137, 11, 0.883) 70%
     );
 
-    filter: blur(45px);
+    filter: blur(40px);
     z-index: 0;
   }
 }
