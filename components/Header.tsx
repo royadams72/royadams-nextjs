@@ -12,7 +12,8 @@ const Header = () => {
     <div data-header className={styles.nav}>
       <div className={styles.navBranding}>
         <Link className="nav-brand-main-link" href="/">
-          Roy Adams Portfolio
+          <span className={styles.navBrandingText}>Roy Adams Portfolio</span>
+          <span className={styles.navBrandingBG}></span>
         </Link>
       </div>
 

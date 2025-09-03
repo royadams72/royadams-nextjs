@@ -16,11 +16,11 @@
     { "h2": "Tech Stack Highlights:" },
     {
       "ul": [
-        { "li": "React 19, Next.js 15 (App Router, RSC)" },
+        { "li": "React 19, Next.js 15 (App Router, RSC), Angular" },
         { "li": "Redux Toolkit, TanStack Query" },
         { "li": "GSAP, Pixi.js, WebGL" },
         { "li": "TypeScript, SCSS Modules, Responsive Design" },
-        { "li": "TypeScript, SCSS Modules, Responsive Design" }
+        { "li": "Redis, MongoDB, API Routes, Vercel" }
       ]
     },
     { "h2": "Values:" },

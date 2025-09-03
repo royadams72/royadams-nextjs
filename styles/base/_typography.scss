@@ -1,29 +1,17 @@
 @use "../abstracts/mixins" as *;
 @use "../fonts/fonts" as *;
 
-.title {
-  @include typography(
-    "xxl",
-    var(--primary-font-colour),
-    ("Archivo-BlackItalic", sans-serif),
-    normal
-  );
-
-  @include breakpoint("md") {
-    @include font-size("xxxl");
-  }
-}
-
 h1 {
   @include typography(
     "xl",
     var(--primary-font-colour),
     ("Archivo-Bold", sans-serif),
-    normal
+    normal,
+    1rem 0
   );
 
   @include breakpoint("md") {
-    @include font-size("xxl");
+    @include font-size("xxxl");
   }
 }
 
@@ -33,13 +21,15 @@ h3 {
     "lg",
     var(--primary-font-colour),
     ("BebasNeue", sans-serif),
-    bold
+    bold,
+    1rem 0
   );
 
   @include breakpoint("md") {
     @include font-size("xl");
   }
 }
+
 h4 {
   @include typography(
     "xl",
@@ -49,22 +39,12 @@ h4 {
   );
 }
 
-p {
+p,
+li {
   margin: 0 0 1.2rem;
 
   @include typography(
-    "md",
-    var(--app-body-font-color),
-    ("Archivo-Medium", sans-serif),
-    normal
-  );
-}
-
-li {
-  margin-bottom: 0.5rem;
-
-  @include typography(
-    "md",
+    "lg",
     var(--app-body-font-color),
     ("Archivo-Medium", sans-serif),
     normal
