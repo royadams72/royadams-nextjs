@@ -1,20 +1,19 @@
 @use "sass:map";
 @use "./maps" as *;
 
-@mixin breakpoint($name, $condition: "min") {
-  @if map.has-key($breakpoints, $name) {
-    $size: map.get($breakpoints, $name);
-    @if $condition == "min" {
-      @media (min-width: $size) {
-        @content;
-      }
-    } @else if $condition == "max" {
-      @media (max-width: $size) {
-        @content;
-      }
+@mixin breakpoint($name, $type: "min") {
+  $size: map.get($breakpoints, $name);
+  @if $size == null {
+    @error "Unknown breakpoint `#{$name}`";
+  }
+
+  $feature: if($type == "max", "max-width", "min-width");
+
+  @media (#{$feature}: #{$size}) {
+    // Re-emit the *current selector* at the root of the media query
+    @at-root #{&} {
+      @content;
     }
-  } @else {
-    @warn "No value found for `#{$name}` in $breakpoints map.";
   }
 }
 
@@ -25,9 +24,21 @@
   font-size: map.get(map.get($typography-scale, $size), font-size);
   line-height: map.get(map.get($typography-scale, $size), line-height);
   margin: $margin;
+  @content;
 }
 
 @mixin font-size($size) {
   font-size: map.get(map.get($typography-scale, $size), font-size);
   line-height: map.get(map.get($typography-scale, $size), line-height);
+}
+
+@mixin link {
+  color: var(--secondary-colour);
+  text-decoration: none;
+  text-align: center;
+
+  &:hover {
+    color: var(--tertiary-colour);
+  }
+  @content;
 }

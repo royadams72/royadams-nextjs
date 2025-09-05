@@ -13,8 +13,8 @@ const Header = () => {
       <div className={styles.navBranding}>
         <Link className="nav-brand-main-link" href="/">
           <span className={styles.navBrandingText}>Roy Adams Portfolio</span>
-          <span className={styles.navBrandingBG}></span>
         </Link>
+        <span className={styles.navBrandingBG}></span>
       </div>
 
       <ul className={styles.navLinks}>

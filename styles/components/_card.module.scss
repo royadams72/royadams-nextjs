@@ -1,5 +1,4 @@
-// @use "../abstracts/variables" as *;
-@use "../base/common" as *;
+@use "../abstracts/mixins" as *;
 
 .row {
   display: grid;

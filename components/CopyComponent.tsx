@@ -13,13 +13,11 @@ const mapElements = (
     const value = (element as any)[tag];
     const key = `${parentKey}.${tag}.${index}`;
 
-    // Case 1: tag with array children → create parent and render children inside
     if (Array.isArray(value)) {
       const children = mapElements(value, key);
       return React.createElement(tag, { key }, children);
     }
 
-    // Optional Case 2: { tag: { props: {...}, children: [...] } }
     if (
       value &&
       typeof value === "object" &&
@@ -40,7 +38,7 @@ const mapElements = (
   });
 };
 
-const CopyComponent = ({ copy }: { copy: any[] }) => {
+const CopyComponent = ({ copy }: { copy: KeyValueMap[] }) => {
   return <div>{mapElements(copy)}</div>;
 };
 
