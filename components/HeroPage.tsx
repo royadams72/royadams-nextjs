@@ -48,7 +48,7 @@ export default function HeroPage({ copy }: { copy: KeyValueMap[] }) {
         stagger: 0.06,
         delay: 1,
       });
-  });
+  }, []);
 
   return (
     <div id="hero" className={styles.fillView}>

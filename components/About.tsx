@@ -76,7 +76,7 @@ const About = ({ copy }: { copy: KeyValueMap[] }) => {
         }
       );
     }
-  });
+  }, []);
   return (
     <div id="about" className={styles.fillView}>
       <CopyComponent copy={copy} />
