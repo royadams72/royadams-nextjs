@@ -3,12 +3,13 @@ import HeroPage from "@/components/HeroPage";
 import About from "@/components/About";
 import { cards } from "@/data/cards";
 import Projects from "@/components/Projects";
+
 export default function Home() {
   return (
     <>
       <HeroPage copy={copy.heroPage} />
       <About copy={copy.aboutPage} />
-      <Projects cards={cards.projects} />
+      <Projects cards={cards.projects} copy={copy.projects} />
     </>
   );
 }
