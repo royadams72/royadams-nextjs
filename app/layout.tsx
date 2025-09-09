@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import "../styles/base/_body.scss";
+import "./_globals.scss";
 import Header from "@/components/Header";
+import Background from "@/components/Background";
 
 export const metadata: Metadata = {
   title: "Roy Adams Portfolio",
@@ -19,6 +19,7 @@ export default function RootLayout({
         <main>
           <Header />
           {children}
+          <Background />
         </main>
       </body>
     </html>

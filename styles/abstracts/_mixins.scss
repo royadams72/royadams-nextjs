@@ -1,0 +1,45 @@
+@use "sass:map";
+@use "./maps" as *;
+
+@mixin breakpoint($name, $type: "min") {
+  $size: map.get($breakpoints, $name);
+  @if $size == null {
+    @error "Unknown breakpoint `#{$name}`";
+  }
+
+  $feature: if($type == "max", "max-width", "min-width");
+
+  @media (#{$feature}: #{$size}) {
+    // Re-emit the *current selector* at the root of the media query
+    @at-root #{&} {
+      @content;
+    }
+  }
+}
+
+@mixin typography($size, $color, $font-family, $font-weight, $margin: 0) {
+  color: $color;
+  font-family: $font-family;
+  font-weight: $font-weight;
+  font-size: map.get(map.get($typography-scale, $size), font-size);
+  line-height: map.get(map.get($typography-scale, $size), line-height);
+  margin: $margin;
+  @content;
+}
+
+@mixin font-size($size) {
+  font-size: map.get(map.get($typography-scale, $size), font-size);
+  line-height: map.get(map.get($typography-scale, $size), line-height);
+}
+
+@mixin link {
+  color: var(--secondary-colour);
+  font-family: "Archivo-Medium", sans-serif;
+  text-decoration: none;
+  text-align: center;
+
+  &:hover {
+    color: var(--tertiary-colour);
+  }
+  @content;
+}

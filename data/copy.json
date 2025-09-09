@@ -1,0 +1,46 @@
+{
+  "heroPage": [
+    { "h1": "Interactive Developer & Creative Technologist" },
+    {
+      "h2": "Crafting seamless digital experiences with React, Next.js, GSAP, and a flair for animation and interaction."
+    },
+    {
+      "p": "I'm Roy Adams, a senior front-end developer and interactive designer with 20+ years of experience building high-impact digital experiences."
+    },
+    {
+      "p": "From dynamic React/Next.js web apps to immersive GSAP animations and Pixi.js games, I bring ideas to life with clean code, compelling visuals, and user-first thinking."
+    }
+  ],
+  "aboutPage": [
+    { "h1": "Who I Am:" },
+    {
+      "p": "I blend creativity with code. With a background in design and a career spanning brands like Ford, Direct Line, and Gala Coral,"
+    },
+    {
+      "p": "I build performant, accessible, and engaging interfaces."
+    },
+    {
+      "p": "Whether it's a custom CMS-powered site, an interactive ad unit, or an AI-driven fitness platform,"
+    },
+    {
+      "p": "I focus on detail, experience, and results."
+    },
+    { "h2": "Tech Stack Highlights:" },
+    {
+      "ul": [
+        { "li": "React 19, Next.js 15 (App Router, RSC), Angular" },
+        { "li": "Redux Toolkit, TanStack Query" },
+        { "li": "GSAP, Pixi.js, WebGL" },
+        { "li": "TypeScript, SCSS Modules, Responsive Design" },
+        { "li": "Redis, MongoDB, API Routes, Vercel" }
+      ]
+    },
+    { "h2": "Values:" },
+    {
+      "p": "Precision. Performance. Playfulness. I bring a product mindset to every project — always thinking about UX, animation polish, and how it all works together under the hood."
+    }
+  ],
+  "projects": [{ "h1": "Projects & Landing pages:" }],
+  "ads": [{ "h1": "Online Ads:" }],
+  "games": [{ "h1": "Teaser Games:" }]
+}

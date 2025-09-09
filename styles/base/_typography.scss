@@ -1,0 +1,56 @@
+@use "../abstracts/mixins" as *;
+@use "../fonts/fonts" as *;
+
+h1 {
+  @include typography(
+    "xl",
+    var(--primary-font-colour),
+    ("Archivo-Bold", sans-serif),
+    normal,
+    1rem 0
+  );
+
+  @include breakpoint("md") {
+    @include font-size("xxxl");
+  }
+}
+
+h2,
+h3 {
+  @include typography(
+    "lg",
+    var(--primary-font-colour),
+    ("BebasNeue", sans-serif),
+    bold,
+    1rem 0
+  );
+
+  @include breakpoint("md") {
+    @include font-size("xl");
+  }
+}
+
+h4 {
+  @include typography(
+    "xl",
+    var(--primary-font-colour),
+    ("BebasNeue", sans-serif),
+    bold
+  );
+}
+
+p,
+li {
+  margin: 0 0 1.2rem;
+
+  @include typography(
+    "lg",
+    var(--app-body-font-color),
+    ("Archivo-Medium", sans-serif),
+    normal
+  );
+}
+
+a {
+  color: inherit;
+}

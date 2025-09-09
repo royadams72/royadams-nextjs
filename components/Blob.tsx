@@ -144,7 +144,6 @@ export default function Blob({
 
       function setAnim() {
         const { w: windowWidth, h: windowHeight } = sizeRef.current;
-        console.log(windowHeight);
         const { randomX, randomY } = setDirection(
           windowWidth,
           windowHeight,
