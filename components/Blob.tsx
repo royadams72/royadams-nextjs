@@ -1,5 +1,5 @@
 "use client";
-import { useRef, useMemo, RefObject, useLayoutEffect, useEffect } from "react";
+import { useRef, useMemo, useEffect } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import getRandomInt from "@/lib/utils/getRandomInt";
@@ -74,7 +74,7 @@ export default function Blob({
   const containerRef = useRef<HTMLDivElement | null>(null);
   const elRef = useRef<HTMLDivElement | null>(null);
   const tlRef = useRef<gsap.core.Tween | gsap.core.Timeline | null>(null);
-  let { height: windowHeight, width: windowWidth } = useScreenSize() ?? {
+  const { height: windowHeight, width: windowWidth } = useScreenSize() ?? {
     width: 0,
     height: 0,
   };

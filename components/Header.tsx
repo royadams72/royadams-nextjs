@@ -2,7 +2,6 @@
 import { useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import Image from "next/image";
 import { gsap, useGSAP } from "@/lib/utils/gsapSetup";
 import { navigation } from "@/data/navigation";
 import styles from "@/styles/components/_header.module.scss";
