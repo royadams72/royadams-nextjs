@@ -2,7 +2,7 @@
 import { gsap, useGSAP } from "@/lib/utils/gsapSetup";
 import { KeyValueMap } from "@/types/interfaces/KeyValueMap";
 import { CardProps } from "@/types/interfaces/CardProps";
-import styles from "@/styles/components/_pages.module.scss";
+import styles from "@/styles/components/_section.module.scss";
 import CopyComponent from "./CopyComponent";
 import CardGrid from "./CardGrid";
 import { useRef } from "react";

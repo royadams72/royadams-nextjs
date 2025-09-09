@@ -1,0 +1,30 @@
+@use "../abstracts//mixins" as *;
+
+// Global section spacing (keeps "first" and "about" from kissing)
+.fillView + .fillView {
+  margin-block-start: clamp(2rem, 6vh, 6rem);
+}
+
+.fillView {
+  width: 100%;
+  position: relative;
+  // z-index: 1; // ❌ usually not needed and can cause stacking overlaps
+  z-index: 1; // ✅ neutral
+  overflow-x: clip;
+
+  // Let content define the height on small screens
+  min-height: auto;
+  padding-block: clamp(2rem, 6vh, 5rem);
+
+  // Anchors won’t hide behind your sticky nav
+  scroll-margin-top: var(--nav-height, 72px);
+
+  // On medium+ screens, give the "section" feel
+  @include breakpoint("md") {
+    // Fallbacks (last one wins if supported)
+    min-height: 100vh;
+    min-height: 100svh; // accounts for mobile UI in some browsers
+    min-height: 100dvh; // dynamic viewport (best when supported)
+    padding-block: clamp(3rem, 8vh, 7rem);
+  }
+}

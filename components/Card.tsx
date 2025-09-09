@@ -5,8 +5,6 @@ import { CardProps } from "@/types/interfaces/CardProps";
 import styles from "@/styles/components/_card.module.scss";
 
 const Card = ({ href, imgSrc, label, isTargetBlank = false }: CardProps) => {
-  console.log("Card", isTargetBlank);
-
   return (
     <Link
       className={`${styles.card} ${styles.link}`}
@@ -15,7 +13,7 @@ const Card = ({ href, imgSrc, label, isTargetBlank = false }: CardProps) => {
       rel={isTargetBlank ? "noopener noreferrer" : undefined}
     >
       <div className={styles.thumb}>
-        <Image src={imgSrc} alt={label} fill priority />
+        <Image src={imgSrc} alt={label} fill sizes="240px, 181px" priority />
       </div>
       <span className={styles.label}>{label}</span>
     </Link>

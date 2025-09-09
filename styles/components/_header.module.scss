@@ -28,6 +28,7 @@
     normal
   ) {
     text-decoration: none;
+    line-height: 0;
   }
 
   @include breakpoint("md") {
@@ -46,6 +47,7 @@
 
   @include breakpoint("sm", "max") {
     @include font-size("xxxl");
+    line-height: 1;
   }
   @include breakpoint("md") {
     text-shadow: none;
@@ -74,10 +76,11 @@
   }
 }
 
-.navLinks {
+.navLinks ul {
   display: grid;
   font-size: 2.1rem;
-  grid-template-columns: repeat(auto-fit, minmax(5rem, 1fr));
+  grid-template-columns: unset;
+  position: relative;
   gap: 0;
   justify-content: center;
   list-style-type: none;
@@ -86,20 +89,26 @@
   text-align: center;
   width: 100%;
   z-index: 200;
+  background-color: rgb(000, 000, 000, 0.5);
+  border-radius: var(--app-border-radius-small);
+  @include breakpoint("md") {
+    grid-template-columns: repeat(auto-fit, minmax(5rem, 1fr));
+    // grid-template-row: repeat(auto-fit, minmax(5rem, 1fr));
+  }
 
   a {
     @include link;
     @include breakpoint("md", "max") {
       padding-left: 0;
       margin-top: 0;
-      color: var(--primary-colour);
-      &:hover {
-        color: #ffffff;
-      }
+      // color: var(--primary-colour);
+      // &:hover {
+      //   color: #ffffff;
+      // }
     }
   }
 
-  li {
-    line-height: 1.1;
-  }
+  // li {
+  //   line-height: 1.1;
+  // }
 }

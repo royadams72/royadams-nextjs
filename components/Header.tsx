@@ -6,7 +6,7 @@ import Image from "next/image";
 import { gsap, useGSAP } from "@/lib/utils/gsapSetup";
 import { navigation } from "@/data/navigation";
 import styles from "@/styles/components/_header.module.scss";
-Image;
+
 const Header = () => {
   const path = usePathname();
   const title = path.replace("/", "").toUpperCase();
@@ -33,20 +33,25 @@ const Header = () => {
       <div className={styles.navBranding}>
         <Link href="/">
           <span className={styles.navBrandingText}>Roy Adams Portfolio</span>
+          <span className={styles.navBrandingBG}></span>
         </Link>
-        <span className={styles.navBrandingBG}></span>
+      </div>
+      <div className={styles.navLinks}>
+        <ul>
+          {navigation &&
+            navigation.map((navItem) => (
+              <li key={navItem.label}>
+                <Link
+                  onClick={() => setDivId(navItem.href)}
+                  href={navItem.href}
+                >
+                  {navItem.label}
+                </Link>
+              </li>
+            ))}
+        </ul>
       </div>
 
-      <ul className={styles.navLinks}>
-        {navigation &&
-          navigation.map((navItem) => (
-            <li key={navItem.label}>
-              <Link onClick={() => setDivId(navItem.href)} href={navItem.href}>
-                {navItem.label}
-              </Link>
-            </li>
-          ))}
-      </ul>
       <h2>{title}</h2>
     </div>
   );

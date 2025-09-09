@@ -1,6 +1,6 @@
 "use client";
 import { gsap, useGSAP } from "@/lib/utils/gsapSetup";
-import styles from "@/styles/components/_pages.module.scss";
+import styles from "@/styles/components/_section.module.scss";
 import { KeyValueMap } from "@/types/interfaces/KeyValueMap";
 import CopyComponent from "./CopyComponent";
 import { useRef } from "react";
