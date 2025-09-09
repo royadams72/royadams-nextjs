@@ -39,7 +39,7 @@ const mapElements = (
 };
 
 const CopyComponent = ({ copy }: { copy: KeyValueMap[] }) => {
-  return <div>{mapElements(copy)}</div>;
+  return <>{mapElements(copy)}</>;
 };
 
 export default CopyComponent;

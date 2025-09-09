@@ -1,24 +1,26 @@
 "use client";
 import { useRef, useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import Image from "next/image";
 import { gsap, useGSAP } from "@/lib/utils/gsapSetup";
+import { navigation } from "@/data/navigation";
 import styles from "@/styles/components/_header.module.scss";
-import { usePathname } from "next/navigation";
 Image;
 const Header = () => {
   const path = usePathname();
   const title = path.replace("/", "").toUpperCase();
   const [divId, setDivId] = useState("");
   const headerRef = useRef<HTMLDivElement>(null);
+
   useGSAP(() => {
-    console.log(headerRef.current?.getClientRects()[0].height);
     if (!divId) return;
-    const headerHeight = headerRef.current?.getClientRects()[0].height;
+    const headerHeight =
+      headerRef.current && headerRef.current?.getClientRects()[0]?.height + 50;
     gsap.to(window, {
       scrollTo: {
         y: divId,
-        offsetY: headerHeight,
+        offsetY: headerHeight || 300,
       },
       duration: 1,
       ease: "power1.inOut",
@@ -29,50 +31,21 @@ const Header = () => {
   return (
     <div data-header className={styles.nav} ref={headerRef}>
       <div className={styles.navBranding}>
-        <Link className="nav-brand-main-link" href="/">
+        <Link href="/">
           <span className={styles.navBrandingText}>Roy Adams Portfolio</span>
         </Link>
         <span className={styles.navBrandingBG}></span>
       </div>
 
       <ul className={styles.navLinks}>
-        <li>
-          <Link
-            className="site-mobile-nav-link"
-            onClick={() => setDivId("#hero")}
-            href="#hero"
-          >
-            Home
-          </Link>
-        </li>
-        <li>
-          <Link
-            className="site-mobile-nav-link"
-            href="#ads"
-            onClick={() => setDivId("#ads")}
-          >
-            Online Adds
-          </Link>
-        </li>
-
-        <li>
-          <Link
-            className="site-mobile-nav-link"
-            onClick={() => setDivId("#projects")}
-            href="#projects"
-          >
-            Projects
-          </Link>
-        </li>
-        <li>
-          <Link
-            className="site-mobile-nav-link"
-            href="#games"
-            onClick={() => setDivId("#games")}
-          >
-            Games
-          </Link>
-        </li>
+        {navigation &&
+          navigation.map((navItem) => (
+            <li key={navItem.label}>
+              <Link onClick={() => setDivId(navItem.href)} href={navItem.href}>
+                {navItem.label}
+              </Link>
+            </li>
+          ))}
       </ul>
       <h2>{title}</h2>
     </div>

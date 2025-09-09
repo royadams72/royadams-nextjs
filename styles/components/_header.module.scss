@@ -5,11 +5,11 @@
   grid-template-rows: 1fr 2rem;
   grid-template-columns: unset;
   gap: 1rem;
-  margin: 2rem auto 2rem auto;
+  margin: 0 auto 2rem auto;
   max-width: var(--app-width);
   justify-content: center;
   position: sticky;
-  top: 0;
+  top: 2rem;
   left: 0;
   right: 0;
   z-index: 9999;
